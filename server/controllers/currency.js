@@ -1,10 +1,29 @@
-const DarkSky = require('dark-sky')
+const https = require('https');
+
 const darksky = new DarkSky(process.env.DARK_SKY)
 const moment = require('moment')
 
-exports.findWeather= async (req, res, next) => {
+exports.findCurrency= async (req, res, next) => {
 	try {
-    //const { latitude, longitude } = req.body
+    
+
+ var options = {
+  "method": "GET",
+  "hostname": "rest.coinapi.io",
+  "path": "/v1/assets",
+  "headers": {'X-CoinAPI-Key'}
+};
+
+  var request = https.request(options, function (response) {
+  var chunks = [];
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+});
+
+  request.end();
+
+    /*//const { latitude, longitude } = req.body
     let latitude = 42.3601
     let longitude = -71.0589
     const forecast = await darksky
@@ -23,16 +42,16 @@ exports.findWeather= async (req, res, next) => {
     next(err)
   }
   console.log("elephant")
-}
+}*/
 
 
 
 
-// const Entry = require('../models/entries');
+const Entry = require('../models/entries');
 
-// // const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
-// const config = require('../config');
+const config = require('../config');
 
 
 

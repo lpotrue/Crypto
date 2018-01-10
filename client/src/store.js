@@ -3,7 +3,7 @@ import {reducer as formReducer} from 'redux-form';
 import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
-import weatherReducer from './reducers/weather-reducer';
+import currencyReducer from './reducers/currency-reducer';
 import protectedDataReducer from './reducers/protected-data';
 import {setAuthToken} from './actions/auth';
 
@@ -12,16 +12,16 @@ const store = createStore(
         form: formReducer,
         auth: authReducer,
         protectedData: protectedDataReducer,
-        weather: weatherReducer
+        currency: currencyReducer
     }),
     applyMiddleware(thunk)
 );
 
 // Hydrate the authToken from localStorage if it exist
-const authToken = loadAuthToken();
-if (authToken) {
-    const token = authToken;
-    store.dispatch(setAuthToken(token));
-}
+//const authToken = loadAuthToken();
+//if (authToken) {
+    //const token = authToken;
+    //store.dispatch(setAuthToken(token));
+//}
 
 export default store;
