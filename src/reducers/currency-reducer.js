@@ -5,17 +5,17 @@ import {
 
 const initialState = {
     data: '',
-    weather: '',
+    currency: '',
     error: null
 };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case 'FETCH_WEATHER':
+        case 'FETCH_CURRENCY':
         console.log(action.data)
           return {
             ...state,
-            weather: action.data.hourly.data
+            currency: action.data.hourly.data
           }
         default:
             return state

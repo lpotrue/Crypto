@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
  
-class City extends Component {
+class Currency extends Component {
 	render () {
     console.log(this.props)
-    let weatherData = this.props.weather
+    let currencyData = this.props.currency
   	return(
       
     <Card>
@@ -45,4 +45,4 @@ const Card = styled.div`
 
 
  
-export default City;
+export default Currency;

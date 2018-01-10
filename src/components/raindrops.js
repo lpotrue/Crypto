@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import Script from 'react-load-script';
 
-export class Raindrops extends React.Component {
+export class Currency extends React.Component {
     componentDidMount() {
     
         //this.props.dispatch(fetchWeatherData());
@@ -32,8 +32,8 @@ const mapStateToProps = state => {
     console.log(state);
     return {
         loggedIn: currentUser !== null,
-        weather: state.weather.weather
+        currency: state.currency.currency
     };
 };
 
-export default connect(mapStateToProps)(Raindrops);
+export default connect(mapStateToProps)(Currency);
