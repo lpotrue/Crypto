@@ -15,17 +15,17 @@ const data = [
 class SimpleLineChart extends Component {
 	render () {
     console.log(this.props)
-    let weatherData = this.props.weather
+    let currencyData = this.props.currency
   	return (
-    	<LineChart width={1600} height={300} data={weatherData}
+    	<LineChart width={800} height={300} data={currencyData}
             margin={{top: 5, right: 30, left: 20, bottom: 5}}>
        <XAxis dataKey="time"/>
-       <YAxis/>
+       <YAxis dataKey="amount"/>
        <CartesianGrid strokeDasharray="3 3"/>
        <Tooltip/>
        <Legend />
-       <Line type="monotone" dataKey="temperature" stroke="#8884d8" activeDot={{r: 8}}/>
-       <Line type="monotone" dataKey="windspeed" stroke="#82ca9d" />
+       <Line type="monotone" dataKey="time" stroke="#8884d8" activeDot={{r: 8}}/>
+       <Line type="monotone" dataKey="amount" stroke="#82ca9d" />
       </LineChart>
     );
   }

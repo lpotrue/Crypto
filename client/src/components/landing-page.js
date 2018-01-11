@@ -12,6 +12,21 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
+        <div className="sp-container">
+            <div className="sp-content">
+            <div className="sp-globe"></div>
+                <h2 className="frame-1">WELCOME</h2>
+                <h2 className="frame-2">TO</h2>
+                <h2 className="frame-3">CRYPTO-PROJECT</h2>
+                <h2 className="frame-4">CRYPTOCURRENCY APP</h2>
+                <h2 className="frame-5">
+                <span>BITCOIN,</span>
+                <span>ETHEREUM,</span>
+                <span>RIPPLE</span>
+            </h2>
+       
+        </div>
+        </div>
             <h2>Welcome to Crypto-Project</h2>
             <LoginForm />
             <Link to="/register">Register</Link>
