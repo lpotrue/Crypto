@@ -12,9 +12,9 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-        <div className= "intro">Welcome to Crypto-Project
+        <div className="intro">Welcome to Crypto-Project
             <LoginForm />
-            <Link to="/register">Register</Link>
+            <Link to="/register"><button>Register</button></Link>
         </div>
             <div className="sp-container">
             <div className="sp-content">
@@ -25,8 +25,8 @@ export function LandingPage(props) {
                 <h2 className="frame-4"></h2>
                 <h2 className="frame-5">
                 <div><span>1400</span></div>
-                <div><span>CRYPTOCURRENCIES</span></div>
-                <span></span>
+                <div><span>Different</span></div>
+                <div><span>Crytocurrencies</span></div>
             </h2>
        
         </div>

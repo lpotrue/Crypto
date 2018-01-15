@@ -1,35 +1,77 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
-const data = [
-      {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
-      {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
-      {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
-      {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-      {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-      {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-      {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
-];
 
-class Currency extends Component {
-    render () {
-    console.log(this.props)
-    let currecnyData = this.props.currency
+var Currency = React.createClass({
+  getInitialState () {
+    return {
+      currencies: []
+    };
+  },
+  componentDidMount: function() {
+    var component = this;
+    var url = 'https://min-api.cryptocompare.com';
+    var end = function (error, response) {
+        component.setState({currencies:response.body})
+        console.log(error);
+        console.log(response);
+        console.log(req);
+    };
+    var req = superagent.get(url).end(end);
+  },
+  render: function() {
     return (
-        <LineChart width={1600} height={300} data={currencyData}
-            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-       <XAxis dataKey="time"/>
-       <YAxis/>
-       <CartesianGrid strokeDasharray="3 3"/>
-       <Tooltip/>
-       <Legend />
-       <Line type="monotone" dataKey="bitcoin" stroke="#8884d8" activeDot={{r: 8}}/>
-       //<Line type="monotone" dataKey="windspeed" stroke="#82ca9d" />
-      </LineChart>
-    );
+      <div>
+        Hello {this.props.name}
+        <div>
+          superagent result:
+          {this.state.currencies.map(function(currency){return(
+            <div>{currency.name}</div>
+          )})}
+        </div>
+      </div>
+     )
   }
+});
+
+ReactDOM.render(
+  <Hello name="World" />,
+  document.getElementById('container')
+);
+
+
+
+
+
+/*class Currency extends Component {
+    constructor(){
+    super();
+    this.state = {
+      currency: [],
+
+  };
 }
 
+  componentDidMount(){
 
-export default connect()(SimpleLineChart);
+    fetch('https://min-api.cryptocompare.com/')
+    .then(results => {
+      return results.json();
+      }).then(data => {
+
+    let currency = data.results.map((id) =>{
+        <div 
+         <input type="text" class="form-control quick-search-box" placeholder="Search Currencies"/>
+    )
+  })
+  this.setState({currency: currency});
+  console.log("state", this.state.currency);
+  })
+}
+
+render() { 
+  return (
+    <div className="container2">
+      {this.state.currency}
+
+export default connect()(Currency);

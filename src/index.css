@@ -22,16 +22,53 @@
 	width: 100%;
 }*/
 
+body {
+  margin: 0;
+}
+#container {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 800px;
+  height: 800px;
+  background-color: #fff;
+}
+
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  border-radius: 5px;
+}
+
+
+button:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(#fff,0);
+}
+
+button:hover {
+	animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(#fff,0);
+}
+
+
+
 .intro {
 	position: absolute;
 	z-index: 100;
 	align-items: center;
 	color: white;
+	font-family: "Courier New", Courier, monospace;
+	margin-left: 50%;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Barlow');
 
 body {
+	//background: url("https://cdn-images-1.medium.com/max/2000/1*10kSRRSOjOOA5bY825Ckgw.jpeg")no-repeat center center fixed; 
 	background: #310404 url(https://i.ytimg.com/vi/wOvQAhzWCrM/maxresdefault.jpg) no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;

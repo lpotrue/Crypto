@@ -5,7 +5,8 @@ import {fetchProtectedData} from '../actions/protected-data';
 import {fetchCurrencyData} from '../actions/currency-data';
 import SimpleLineChart from './simpleLineChart';
 
-import styled from 'styled-components';
+
+//import styled from 'styled-components';
 
 
 
@@ -36,13 +37,13 @@ export class Dashboard extends React.Component {
                     Protected data: {this.props.protectedData}
                 </div>
                 <br />
-                
-                    <script src="https://rawgit.com/mzabriskie/axios/master/dist/axios.min.js"></script>
-                    <script src="https://rawgit.com/coinapi/coinapi-sdk/master/javascript-rest/coinapi_v1.js"></script>
-                    <script src="https://rawgit.com/coinapi/coinapi-sdk/master/javascript-rest/example_javascript.js"></script>
+               
+               
                 
                 <SimpleLineChart name="Lindsay" currency={this.props.currency}/>
                 <Link to="/add">Add Entry</Link>
+                
+            
             </div>
         );
     }
