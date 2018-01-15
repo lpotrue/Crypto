@@ -1,4 +1,47 @@
-const https = require('https');
+
+//const currency = new Currency(process.env)
+const moment = require('moment')
+
+exports.findCurrency= async (req, res, next) => {
+  try {
+    
+
+ var options = {
+  "method": "GET",
+  "hostname": "min-api.cryptocompare.com/data",
+  "path": " ",
+};
+      
+  var request = https.request(options, function (response) {
+  var chunks = [];
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+});
+
+  request.end();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*const https = require('https');
 
 const darksky = new DarkSky(process.env.DARK_SKY)
 const moment = require('moment')
@@ -23,16 +66,10 @@ exports.findCurrency= async (req, res, next) => {
 
   request.end();
 
-    /*//const { latitude, longitude } = req.body
-    let latitude = 42.3601
-    let longitude = -71.0589
-    const forecast = await darksky
-      .options({
-        latitude,
-        longitude,
-        //time: moment().subtract(1, 'weeks')
-      })
-      .get()
+    
+
+
+.get()
       .then(x => { console.log(x) 
        return res.status(200).json({ data: x });
       } )
@@ -44,14 +81,6 @@ exports.findCurrency= async (req, res, next) => {
   console.log("elephant")
 }*/
 
-
-
-
-const Entry = require('../models/entries');
-
-const jwt = require('jsonwebtoken');
-
-const config = require('../config');
 
 
 

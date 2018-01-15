@@ -1,6 +1,7 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 
+
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
 export const fetchCurrencyDataSuccess = data => ({
     type: 'FETCH_CURRENCY',
@@ -14,7 +15,7 @@ export const fetchCurrencyDataError = error => ({
 });
 
 export const fetchCurrencyData = () => (dispatch, getState) => {
-    const authToken = getState().auth.authToken.apikey;
+    const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/currency`, {
         method: 'GET',
         headers: {
@@ -33,3 +34,5 @@ export const fetchCurrencyData = () => (dispatch, getState) => {
             dispatch(fetchCurrencyDataError(err));
         });
 };
+
+

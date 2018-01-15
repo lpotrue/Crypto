@@ -3,6 +3,7 @@ import {
     FETCH_PROTECTED_DATA_ERROR
 } from '../actions/protected-data';
 
+
 const initialState = {
     data: '',
     currency: '',
@@ -15,7 +16,7 @@ export default function reducer(state = initialState, action) {
         console.log(action.data)
           return {
             ...state,
-            currency: action.data.hourly.data
+            currency: action.data
           }
         default:
             return state
