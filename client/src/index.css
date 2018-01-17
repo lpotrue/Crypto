@@ -26,12 +26,84 @@ body {
   margin: 0;
 }
 #container {
-  box-sizing: border-box;
+  box-sizing: border-box; 
   padding: 10px;
   width: 800px;
   height: 800px;
   background-color: #fff;
 }
+
+body {
+  font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  //padding: 20px 50px 150px;
+  font-size: 13px;
+  text-align: center;
+  background: #E3CAA1;
+}
+
+ul {
+  text-align: left;
+  display: inline;
+  margin: 0;
+  padding: 15px 4px 17px 0;
+  list-style: none;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+ul li {
+  font: bold 12px/18px sans-serif;
+  display: inline-block;
+  margin-right: -4px;
+  position: relative;
+  padding: 15px 20px;
+  background: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+ul li:hover {
+  background: #555;
+  color: #fff;
+}
+ul li ul {
+  padding: 0;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 150px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transiton: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -transition: opacity 0.2s;
+}
+ul li ul li { 
+  background: #555; 
+  display: block; 
+  color: #fff;
+  text-shadow: 0 -1px 0 #000;
+}
+ul li ul li:hover { background: #666; }
+ul li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
+
 
 
 button {
@@ -54,7 +126,14 @@ button:hover {
   box-shadow: 0 0 0 2em rgba(#fff,0);
 }
 
+h3 {
+	background-color: white;
+	height: 75px;
+	opacity: .5;
+	padding: 0px;
 
+
+}
 
 .intro {
 	position: absolute;
@@ -68,6 +147,7 @@ button:hover {
 @import url('https://fonts.googleapis.com/css?family=Barlow');
 
 body {
+	//background: url("https://ak3.picdn.net/shutterstock/videos/24297443/thumb/1.jpg")no-repeat center center fixed;
 	//background: url("https://cdn-images-1.medium.com/max/2000/1*10kSRRSOjOOA5bY825Ckgw.jpeg")no-repeat center center fixed; 
 	background: #310404 url(https://i.ytimg.com/vi/wOvQAhzWCrM/maxresdefault.jpg) no-repeat center center fixed; 
 	-webkit-background-size: cover;
@@ -144,7 +224,7 @@ h1.main, p.demos {
 	animation-delay: 6s;
 }
 .sp-container h2.frame-4 {
-	font-size: 200px;
+	font-size: 100px;
 	-webkit-animation-delay: 9s;
 	-moz-animation-delay: 9s;
 	-ms-animation-delay: 9s;
@@ -181,7 +261,7 @@ h1.main, p.demos {
 .sp-globe {
 	position: absolute;
 	width: 282px;
-	height: 273px;
+	//height: 273px;
 	left: 50%;
 	top: 50%;
 	margin: -137px 0 0 -141px;

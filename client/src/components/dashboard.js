@@ -37,9 +37,9 @@ export class Dashboard extends React.Component {
                     Protected data: {this.props.protectedData}
                 </div>
                 <br />
-               
-               
-                
+               <div className="search">
+                <input type="text" placeholder="Search Currencies"></input>
+               </div>
                 <SimpleLineChart name="Lindsay" currency={this.props.currency}/>
                 <Link to="/add">Add Entry</Link>
                 
