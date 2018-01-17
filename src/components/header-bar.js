@@ -20,8 +20,9 @@ export class HeaderBar extends React.Component {
         }
         return (
             <div className="header-bar">
-                <h1>Crypto</h1>
-                {logOutButton}
+
+                <h3>Crypto {logOutButton}</h3>
+                
             </div>
         );
     }
