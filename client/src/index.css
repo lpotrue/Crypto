@@ -32,6 +32,11 @@ body {
   height: 800px;
   background-color: #fff;
 }
+.login-form {
+	box-sizing: border-box;
+    border: 1px black;
+    background-color: ghostwhite;
+ }
 
 body {
   font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -41,7 +46,7 @@ body {
   background: #E3CAA1;
 }
 
-ul {
+/*ul {
   text-align: left;
   display: inline;
   margin: 0;
@@ -98,7 +103,7 @@ ul li:hover ul {
   display: block;
   opacity: 1;
   visibility: visible;
-}
+}*/
 
 
 

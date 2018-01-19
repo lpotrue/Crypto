@@ -12,7 +12,7 @@ const jsonParser = bodyParser.json();
 //const EntryController = require('./entries');
 const UsersController = require('./users');
 const AuthController = require('./auth');
-//const CurrencyController = require('./currency');
+const CurrencyController = require('./currency');
 
 
 //Register User
@@ -27,6 +27,6 @@ router.post('/refresh', passport.authenticate('jwt', {session: false}), AuthCont
 //Add Entry
 router.post('/add', [passport.authenticate('jwt', {session: false}), jsonParser],UsersController.addEntry);
 
-//router.get('/currency', jsonParser, currencyController.findCurrency);
+router.get('/currency', jsonParser, CurrencyController.findCurrency);
 
 module.exports = {router, basicStrategy, jwtStrategy};

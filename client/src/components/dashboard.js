@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-import {fetchProtectedData} from '../actions/protected-data';
+//import {fetchProtectedData} from '../actions/protected-data';
 import {fetchCurrencyData} from '../actions/currency-data';
 import SimpleLineChart from './simpleLineChart';
-
+import Search from './Search';
 
 //import styled from 'styled-components';
 
@@ -15,7 +15,7 @@ export class Dashboard extends React.Component {
         if (!this.props.loggedIn) {
             return;
         }
-        this.props.dispatch(fetchProtectedData());
+        //this.props.dispatch(fetchProtectedData());
         this.props.dispatch(fetchCurrencyData());
     }
 
@@ -33,12 +33,11 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-username">
                     Email: {this.props.email}
                 </div>
-                <div className="dashboard-protected-data">
-                    Protected data: {this.props.protectedData}
-                </div>
+                
                 <br />
                <div className="search">
-                <input type="text" placeholder="Search Currencies"></input>
+               <Search currency={this.props.currency}/>
+                
                </div>
                 <SimpleLineChart name="Lindsay" currency={this.props.currency}/>
                 <Link to="/add">Add Entry</Link>
@@ -56,7 +55,7 @@ const mapStateToProps = state => {
     return {
         loggedIn: currentUser !== null,
         email: currentUser ? state.auth.currentUser.email : '',
-        protectedData: state.protectedData.data,
+        
         currency: state.currency.currency
     };
 };

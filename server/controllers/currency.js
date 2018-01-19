@@ -2,7 +2,23 @@
 //const currency = new Currency(process.env)
 const moment = require('moment')
 
-exports.findCurrency= async (req, res, next) => {
+
+// async function
+exports.findCurrency = function(req, res, next) {
+    console.log('sweet potato 2');
+    Coin.find().exec().then(result => {
+        return res.json({
+            data: result
+        });
+    }).catch(err => {throw err});
+}
+
+
+
+
+
+
+/*exports.findCurrency= async (req, res, next) => {
   try {
     
 
@@ -19,7 +35,7 @@ exports.findCurrency= async (req, res, next) => {
   });
 });
 
-  request.end();
+  request.end();*/
 
 
 
