@@ -30,7 +30,9 @@ export const fetchCurrencyData = () => (dispatch, getState) => {
             console.log("watermelon")
             console.log(data)
         })
+
         .catch(err => {
+             console.log(err)
             dispatch(fetchCurrencyDataError(err));
         });
 };

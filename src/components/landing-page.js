@@ -16,7 +16,8 @@ export function LandingPage(props) {
         <ul>
         
         <ul>
-           <li><a href="/login">Login</a></li>
+            
+             <LoginForm />
         </ul>
         
         <ul>
@@ -34,7 +35,7 @@ export function LandingPage(props) {
                 <h2 className="frame-4">Discover</h2>
                 <h2 className="frame-5">
                 <span>1400</span>
-                <span>Crytocurrencies</span>
+                <div><span>Crytocurrencies</span></div>
             </h2>
        
         </div>
