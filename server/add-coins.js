@@ -3,7 +3,9 @@ const Coin = require('./models/coins');
 //https://api.coinmarketcap.com/v1/ticker/?limit=1000
 console.log('Data fecthed');
 const mongoose= require('mongoose');
-mongoose.connect('mongodb://coins:coins@ds263707.mlab.com:63707/coins')
+mongoose.connect('mongodb://coins:coins@ds263707.mlab.com:63707/coins');
+//mongoose.connect('mongodb://localhost:8080');
+
 
 var date = new Date();
 var daysToDeletion = 3;
