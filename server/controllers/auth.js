@@ -23,3 +23,5 @@ exports.refresh = function(req, res, next) {
     console.log('potato');
     res.json({authToken});
 };
+
+
