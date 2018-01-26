@@ -10,7 +10,9 @@ mongoose.connect('mongodb://coins:coins@ds263707.mlab.com:63707/coins');
 var date = new Date();
 var daysToDeletion = 3;
 var deletionDate = new Date(date.setDate(date.getDate() - daysToDeletion));
-
+  deletionDate = deletionDate/1000
+    console.log(deletionDate)
+    console.log(deletionDate/1000)
 
 return new Promise((resolve, reject) => {
         request({

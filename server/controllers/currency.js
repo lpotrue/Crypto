@@ -1,12 +1,12 @@
 
 //const currency = new Currency(process.env)
 const moment = require('moment')
-
+const Coins  = require('../models/coins');
 
 // async function
 exports.findCurrency = function(req, res, next) {
     console.log('sweet potato 2');
-    Coin.find().exec().then(result => {
+    Coins.find().exec().then(result => {
         return res.json({
             data: result
         });
