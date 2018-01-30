@@ -11,6 +11,12 @@ import Search from './Search';
 
 
 export class Dashboard extends React.Component {
+    constructor() {
+    super();
+    this.state = {
+      coinData: []
+    };
+  }
     componentDidMount() {
         if (!this.props.loggedIn) {
             return;
@@ -18,7 +24,18 @@ export class Dashboard extends React.Component {
         //this.props.dispatch(fetchProtectedData());
         this.props.dispatch(fetchCurrencyData());
     }
-
+    graphCoin = (coin) => {
+       
+        console.log(coin, this.props)
+        var result = this.props.currency.filter(function( obj ) {
+            return obj.name == coin.name;
+        });
+        result.forEach((coin) =>{ coin.price_usd = Number(coin.price_usd) })
+         this.setState({
+            coinData: result
+        });
+        console.log(result)
+    }
     render() {
         // Only visible to logged in users
         if (!this.props.loggedIn) {
@@ -36,10 +53,10 @@ export class Dashboard extends React.Component {
                 
                 <br />
                <div className="search">
-               <Search currency={this.props.currency}/>
+               <Search currency={this.props.currency} graphCoin={this.graphCoin}/>
                 
                </div>
-                <SimpleLineChart name="Lindsay" currency={this.props.currency}/>
+                <SimpleLineChart currency={this.props.currency} coinData ={this.state.coin}/>
                 <Link to="/add">Add Entry</Link>
                 
             

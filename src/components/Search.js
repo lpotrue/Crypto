@@ -41,7 +41,14 @@ export default class Search extends React.Component {
       suggestions: []
     };
   }
-
+  addCoin = () =>{
+    console.log("addCoin clicked")
+  };
+  onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) =>{
+        console.log("onSuggestionSelected", suggestion);
+        console.log(this)
+      this.props.graphCoin(suggestion)
+  };
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
@@ -78,6 +85,7 @@ export default class Search extends React.Component {
     // Finally, render it!
     return (
       <Autosuggest
+        onSuggestionSelected={this.onSuggestionSelected}
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
