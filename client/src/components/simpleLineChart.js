@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import moment from 'moment';
 
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 const data = [
@@ -11,26 +12,29 @@ const data = [
       {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
       {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
 ];
+const tickFormatter = (tick) => moment(tick * 1000).format("MMM Do YYYY"); 
+    //console.log(this.props)
+    //let currencyData = this.props.currency
+const SimpleLineChart = (props) => {
 
-class SimpleLineChart extends Component {
-	render () {
-    console.log(this.props)
-    let currencyData = this.props.currency
+	//render () {
+
+    
   	return (
       <div idName="container">
-    	<LineChart width={800} height={300} data={currencyData}
+    	<LineChart width={800} height={300} data={props.coinData}
             margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-       <XAxis dataKey="time"/>
-       <YAxis dataKey="amount"/>
+       <XAxis dataKey="price_usd"/>
+       <YAxis/>
        <CartesianGrid strokeDasharray="3 3"/>
        <Tooltip/>
        <Legend />
-       <Line type="monotone" dataKey="time" stroke="#8884d8" activeDot={{r: 8}}/>
-       <Line type="monotone" dataKey="amount" stroke="#82ca9d" />
+       <Line type="monotone" dataKey="last_updated" tickFormatter={tickFormatter} stroke="#8884d8" activeDot={{r: 8}}/>
+       {/*<Line type="monotone" dataKey="pv" stroke="#82ca9d" />*/}
       </LineChart>
       </div>
     );
-  }
+  //}
 }
 
 
