@@ -7,7 +7,8 @@ import {
 const initialState = {
     data: '',
     currency: '',
-    error: null
+    error: null,
+    coins: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -18,8 +19,15 @@ export default function reducer(state = initialState, action) {
             ...state,
             currency: action.data
           }
+         case 'MAP_CURRENCY':
+        console.log(action)
+          return {
+            ...state,
+            coins: [...action.results]
+          }
         default:
             return state
     }
 
 }
+

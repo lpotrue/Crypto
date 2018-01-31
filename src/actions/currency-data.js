@@ -36,5 +36,8 @@ export const fetchCurrencyData = () => (dispatch, getState) => {
             dispatch(fetchCurrencyDataError(err));
         });
 };
-
+export const mapCurrency = results => ({
+    type: "MAP_CURRENCY",
+    results
+});
 

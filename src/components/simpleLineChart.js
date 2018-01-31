@@ -12,7 +12,10 @@ const data = [
       {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
       {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
 ];
-const tickFormatter = (tick) => moment(tick * 1000).format("MMM Do YYYY"); 
+
+const dummy =[{"_id":"5a6e561c98c0350004fae706","id":"bitcoin","name":"Bitcoin","symbol":"BTC","price_usd":11816.1,"price_btc":"1.0","percent_change_24h":"2.61","last_updated":"1517180367","__v":0},{"_id":"5a6fa7a6fd189000040bac3c","id":"bitcoin","name":"Bitcoin","symbol":"BTC","price_usd":11191.6,"price_btc":"1.0","percent_change_24h":"-5.31","last_updated":"1517266767","__v":0},{"_id":"5a70f9156d86e80004a4fa07","id":"bitcoin","name":"Bitcoin","symbol":"BTC","price_usd":10352.8,"price_btc":"1.0","percent_change_24h":"-8.26","last_updated":"1517353167","__v":0}]
+const tickFormatter = (tick) => moment(Number(tick) * 1000).format("MMM Do YYYY"); 
+const priceFormatter = (price) => Number(price);
     //console.log(this.props)
     //let currencyData = this.props.currency
 const SimpleLineChart = (props) => {
@@ -21,15 +24,15 @@ const SimpleLineChart = (props) => {
 
     
   	return (
-      <div idName="container">
+      <div>
     	<LineChart width={800} height={300} data={props.coinData}
             margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-       <XAxis dataKey="price_usd"/>
-       <YAxis/>
+       <XAxis dataKey="last_updated" tickFormatter ={tickFormatter}/>
+       <YAxis />
        <CartesianGrid strokeDasharray="3 3"/>
        <Tooltip/>
        <Legend />
-       <Line type="monotone" dataKey="last_updated" tickFormatter={tickFormatter} stroke="#8884d8" activeDot={{r: 8}}/>
+       <Line type="monotone" dataKey="price_usd"  stroke="#8884d8" activeDot={{r: 8}}/>
        {/*<Line type="monotone" dataKey="pv" stroke="#82ca9d" />*/}
       </LineChart>
       </div>
