@@ -25,8 +25,10 @@ router.post('/login', passport.authenticate('basic', {session: false}), AuthCont
 router.post('/refresh', passport.authenticate('jwt', {session: false}), AuthController.refresh);
 
 //Add Entry
-router.post('/add', [passport.authenticate('jwt', {session: false}), jsonParser],UsersController.addEntry);
+router.post('/add', [passport.authenticate('jwt', {session: false}), jsonParser], UsersController.addEntry);
 
 router.get('/currency', jsonParser, CurrencyController.findCurrency);
+
+router.get('/yourcoins', jsonParser, CurrencyController.findYourCoins);
 
 module.exports = {router, basicStrategy, jwtStrategy};

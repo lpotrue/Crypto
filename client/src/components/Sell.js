@@ -7,10 +7,10 @@ import { testFetch } from '../actions/protected-data';
 import { sendEntry } from '../actions/addNew';
 // import {required, nonEmpty} from '../validators';
 
-export class Add extends React.Component {
+export class Sell extends React.Component {
 
     componentDidMount() {
-       // this.props.dispatch(testFetch());
+        //this.props.dispatch(Fetch());
     }
 
 
@@ -46,13 +46,12 @@ export class Add extends React.Component {
                 )}>
                 {error}
                 <br />
-                    <h3>{this.props.selectedCoin.name}</h3>
-                    <h3>{this.props.selectedCoin.price_usd}</h3>
+                    
                     <label>Amount</label>
                     <Field name="amount" component="input" type="text" placeholder="e.g 4000"/>
                 <br />
                 <button disabled={this.props.pristine || this.props.submitting}>
-                    Buy
+                    Sell
                 </button>
             </form>
         );
@@ -67,14 +66,14 @@ const mapStateToProps = state => {
     };
 };
 
-Add = connect(
+Sell = connect(
     mapStateToProps
-    )(Add);
+    )(Sell);
 
 export default reduxForm({
     form: 'add',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('add', 'email'))
-})(Add);
+    onSubmitFail: (errors, dispatch) => dispatch(focus('sell', 'email'))
+})(Sell);
 
 
 

@@ -1,5 +1,5 @@
 const {User} = require('../models/users');
-const Entry  = require('../models/entries');
+const UserCoins  = require('../models/usercoins');
 
 // Post to register a new user
 exports.register = function(req, res, next) {
@@ -127,13 +127,15 @@ exports.register = function(req, res, next) {
 
 
 //Add Entry
+
 exports.addEntry = function(req, res, next) {
-    console.log('sweet potato');
-    let entry = new Entry(req.body);
-    entry['userId'] = req.user.id;
-    entry.save();
-    return res.json({
-       data: 'rosebud'
-    });
+
+    delete req.body["_id"]
+   
+    console.log(req.body, req.user)
+    console.log('add user coins');
+    let userCoins = new UserCoins(req.body);
+    userCoins['user_id'] = req.user.id;
+    userCoins.save();
 };
 

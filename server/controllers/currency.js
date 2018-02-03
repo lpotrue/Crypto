@@ -13,6 +13,15 @@ exports.findCurrency = function(req, res, next) {
     }).catch(err => {throw err});
 }
 
+exports.findYourCoins = function(req, res, next) {
+    console.log(req.user)
+    Coins.find({user_id: req.user.id}).exec().then(result => {
+      console.log(result);
+        return res.json({
+            data: result
+        });
+    }).catch(err => {throw err});
+}
 
 
 

@@ -8,7 +8,9 @@ const initialState = {
     data: '',
     currency: '',
     error: null,
-    coins: []
+    coins: [],
+    selectedCoin: {},
+    yourcoins: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -17,13 +19,15 @@ export default function reducer(state = initialState, action) {
         console.log(action.data)
           return {
             ...state,
-            currency: action.data
+            currency: action.data,
+            
           }
          case 'MAP_CURRENCY':
         console.log(action)
           return {
             ...state,
-            coins: [...action.results]
+            coins: [...action.results],
+            selectedCoin: {...action.results[action.results.length-1]}
           }
         default:
             return state

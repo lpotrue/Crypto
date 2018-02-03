@@ -40,4 +40,27 @@ export const mapCurrency = results => ({
     type: "MAP_CURRENCY",
     results
 });
+//for yourCoins
+export const fetchYourCoins = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/yourcoins`, {
+        method: 'GET',
+        headers: {
+            // Provide our auth token as credentials
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(({data}) => {
+            dispatch(fetchCurrencyDataSuccess(data))
+            console.log("watermelon")
+            console.log(data)
+        })
+
+        .catch(err => {
+             console.log(err)
+            dispatch(fetchCurrencyDataError(err));
+        });
+};
 

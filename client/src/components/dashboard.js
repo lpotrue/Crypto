@@ -2,11 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 //import {fetchProtectedData} from '../actions/protected-data';
-import {fetchCurrencyData} from '../actions/currency-data';
+import {fetchCurrencyData, fetchYourCoins} from '../actions/currency-data';
 import SimpleLineChart from './simpleLineChart';
 import Search from './Search';
 import {mapCurrency} from '../actions/currency-data';
-
+import Add from './Add';
+import Sell from './Sell'
 //import styled from 'styled-components';
 
 
@@ -24,6 +25,7 @@ export class Dashboard extends React.Component {
         }
         //this.props.dispatch(fetchProtectedData());
         this.props.dispatch(fetchCurrencyData());
+        this.props.dispatch(fetchYourCoins());
     }
     graphCoin = (coin) => {
        
@@ -35,6 +37,8 @@ export class Dashboard extends React.Component {
          this.setState({
             coinData: [...result]
         });
+         console.log(result)
+         console.log(this.props)
         this.props.dispatch(mapCurrency(result));
         //console.log(JSON.stringify(result))
     }
@@ -52,16 +56,15 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-username">
                     Email: {this.props.email}
                 </div>
-                
+                <div>{this.props.result}</div>
                 <br />
                <div className="search">
                <Search currency={this.props.currency} graphCoin={this.graphCoin}/>
                 
                </div>
                <SimpleLineChart currency={this.props.currency} coinData ={this.props.coins}/>
-                <Link to="/add">Add Entry</Link>
-                
-            
+                <Add selectedCoin={this.props.selectedCoin}/>
+                <Sell/>
             </div>
         );
     }
@@ -75,7 +78,8 @@ const mapStateToProps = state => {
         loggedIn: currentUser !== null,
         email: currentUser ? state.auth.currentUser.email : '',
         coins: state.currency.coins,
-        currency: state.currency.currency
+        currency: state.currency.currency,
+        selectedCoin: state.currency.selectedCoin
     };
 };
 
