@@ -16,7 +16,7 @@ var deletionDate = new Date(date.setDate(date.getDate() - daysToDeletion));
 
 return new Promise((resolve, reject) => {
         request({
-            url: `https://api.coinmarketcap.com/v1/ticker/?limit=10`,
+            url: `https://api.coinmarketcap.com/v1/ticker/?limit=0`,
             json: true
         }, (error, response, body) => {
 
