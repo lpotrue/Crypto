@@ -2,6 +2,9 @@
 //const currency = new Currency(process.env)
 const moment = require('moment')
 const Coins  = require('../models/coins');
+const UserCoins  = require('../models/usercoins');
+const request = require('request');
+ 
 
 // async function
 exports.findCurrency = function(req, res, next) {
@@ -14,14 +17,41 @@ exports.findCurrency = function(req, res, next) {
 }
 
 exports.findYourCoins = function(req, res, next) {
-    console.log(req.user)
-    Coins.find({user_id: req.user.id}).exec().then(result => {
+    console.log(req.user, "Coins")
+    UserCoins.find({user_id: req.user.id}).exec().then(result => {
       console.log(result);
         return res.json({
-            data: result
+            yourCoins: result
         });
     }).catch(err => {throw err});
 }
+
+
+
+exports.getCurrentPrice = function(req, res, next) {
+  let result = latestPrices.find(function(coin){
+    return (coin.symbol.toLowerCase() === req.params.symbol.toLowerCase());
+  })
+  return res.json({data:result});
+}
+
+ var latestPrices;
+
+function updatePrices(){
+  request({
+            url: `https://api.coinmarketcap.com/v1/ticker/?limit=0`,
+            json: true
+        }, (error, response, body) => {
+
+            console.log("Updated prices!");
+            //console.log(body);
+            latestPrices = body;
+           
+       });
+}
+
+updatePrices(); // calls it the first time 
+setInterval(updatePrices, 1000 * 60); // Calls it every minute
 
 
 

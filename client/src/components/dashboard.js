@@ -8,6 +8,7 @@ import Search from './Search';
 import {mapCurrency} from '../actions/currency-data';
 import Add from './Add';
 import Sell from './Sell'
+import Stocks from './Stocks'
 //import styled from 'styled-components';
 
 
@@ -63,9 +64,13 @@ export class Dashboard extends React.Component {
                 
                </div>
                <SimpleLineChart currency={this.props.currency} coinData ={this.props.coins}/>
+               <Stocks yourCoins={this.props.yourCoins}/>
                 <Add selectedCoin={this.props.selectedCoin}/>
                 <Sell/>
+                
             </div>
+
+
         );
     }
 }
@@ -79,7 +84,9 @@ const mapStateToProps = state => {
         email: currentUser ? state.auth.currentUser.email : '',
         coins: state.currency.coins,
         currency: state.currency.currency,
-        selectedCoin: state.currency.selectedCoin
+        selectedCoin: state.currency.selectedCoin,
+        yourCoins: state.currency.yourCoins
+
     };
 };
 

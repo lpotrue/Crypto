@@ -10,7 +10,7 @@ const initialState = {
     error: null,
     coins: [],
     selectedCoin: {},
-    yourcoins: []
+    yourCoins: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -29,6 +29,13 @@ export default function reducer(state = initialState, action) {
             coins: [...action.results],
             selectedCoin: {...action.results[action.results.length-1]}
           }
+        case 'YOUR_CURRENCY':
+        console.log(action)
+        return {
+            ...state,
+            yourCoins: [...action.yourCoins],
+
+        }
         default:
             return state
     }
