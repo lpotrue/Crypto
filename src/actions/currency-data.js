@@ -52,10 +52,10 @@ export const fetchYourCoins = () => (dispatch, getState) => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(({data}) => {
-            dispatch(fetchCurrencyDataSuccess(data))
-            console.log("watermelon")
-            console.log(data)
+        .then(({yourCoins}) => {
+            dispatch(yourCurrency(yourCoins))
+            console.log("Zebra")
+            console.log(yourCoins)
         })
 
         .catch(err => {
@@ -63,4 +63,9 @@ export const fetchYourCoins = () => (dispatch, getState) => {
             dispatch(fetchCurrencyDataError(err));
         });
 };
+
+export const yourCurrency = yourCoins => ({
+    type: "YOUR_CURRENCY",
+    yourCoins
+});
 
