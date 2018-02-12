@@ -1,16 +1,33 @@
 import React from 'react'
 
 const Stocks = (props) => (
-  <div>
-    <h1>About Pa</h1>
-    <p>Did you get here via Redux?</p>
-    <ul>
-      {props.yourCoins.map((coin) =>
-       <li key={coin._id}>{coin.name}</li>
-                
+  <div className="mine">
 
+    
+    
+      <label id="coin-names">My Coins</label>
+        
+           
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Total</th>
+      </tr>
+     
+            
+         
+      {props.yourCoins.map((coin) =>
+       <tr>
+        <td id="left" key={coin._id}>{coin.name} ({coin.symbol})</td>
+        <td id="center" value={coin._id}>{coin.amount}</td>
+        <td id="right" value={coin._id}>{coin.price_usd}</td>
+      </tr>
+         
       )}
-    </ul>
+      </table>
+   
+    
   </div>
 )
 

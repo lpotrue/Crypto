@@ -46,13 +46,12 @@ export class Add extends React.Component {
                 )}>
                 {error}
                 <br />
-                    <h3>{this.props.selectedCoin.name}</h3>
-                    <h3>{this.props.selectedCoin.price_usd}</h3>
+                    <h4>{this.props.selectedCoin.name} {this.props.selectedCoin.price_usd}</h4>
                     <label>Amount</label>
                     <Field name="amount" component="input" type="text" placeholder="e.g 4000"/>
                 <br />
                 <button disabled={this.props.pristine || this.props.submitting}>
-                    Buy
+                    Add
                 </button>
             </form>
         );
