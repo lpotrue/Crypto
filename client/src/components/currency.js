@@ -1,77 +1,47 @@
-/*import React, { Component } from 'react';
-import {connect} from 'react-redux';
+/*import {connect} from 'react-redux';
+import styled from 'styled-components';
+ 
+class Stocks extends Component {
+  render () {
+    console.log(this.props)
+    let MyCurrency = this.props.MyCurrency
+    return(
+      
+    <Card>
+    <Img src={this.props.img}/>
+    <Container>
+      <h4><b>John Doe</b></h4> 
+    <p>Architect & Engineer</p> 
+    </Container>
+    </Card>
 
 
-var Currency = React.createClass({
-  getInitialState () {
-    return {
-      currencies: []
-    };
-  },
-  componentDidMount: function() {
-    var component = this;
-    var url = 'https://min-api.cryptocompare.com';
-    var end = function (error, response) {
-        component.setState({currencies:response.body})
-        console.log(error);
-        console.log(response);
-        console.log(req);
-    };
-    var req = superagent.get(url).end(end);
-  },
-  render: function() {
-    return (
-      <div>
-        Hello {this.props.name}
-        <div>
-          superagent result:
-          {this.state.currencies.map(function(currency){return(
-            <div>{currency.name}</div>
-          )})}
-        </div>
-      </div>
-     )
-  }
-});
-
-ReactDOM.render(
-  <Hello name="World" />,
-  document.getElementById('container')
-);
-
-
-
-
-
-/*class Currency extends Component {
-    constructor(){
-    super();
-    this.state = {
-      currency: [],
-
-  };
-}
-
-  componentDidMount(){
-
-    fetch('https://min-api.cryptocompare.com/')
-    .then(results => {
-      return results.json();
-      }).then(data => {
-
-    let currency = data.results.map((id) =>{
-        <div 
-         <input type="text" class="form-control quick-search-box" placeholder="Search Currencies"/>
     )
-  })
-  this.setState({currency: currency});
-  console.log("state", this.state.currency);
-  })
+  }
 }
+const Img = styled.img`
+    width: 100%;
+    height: 100%;
+  `;
 
-render() { 
-  return (
-    <div className="container2">
-      {this.state.currency}
+const Container =styled.div`
+  padding: 2px 16px;
 
-export default connect()(Currency);
+`;
+const Card = styled.div`
+    margin: 1rem;
+    display: inline-block;
+    white-space: nowrap;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40vh;
+    height: 50vh;
+    :hover{
+       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    
+    }
+  `;
+
+
+ 
+export default MyCurrency;

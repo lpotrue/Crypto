@@ -130,22 +130,25 @@ exports.register = function(req, res, next) {
 
 exports.addEntry = function(req, res, next) {
 
+    console.log("What happens next?")
     console.log(req.body)
 
-    UserCoins.update({user_id:req.user._id},
 
-         {$inc: { amount: req.body.amount }, $set: {id: req.body.id, name: req.body.name, user_id: req.user._id}}, 
-         {upsert: true}, 
-         function(err){
-            console.log(err)
-         })
+    // UserCoins.save({user_id:req.user._id},
+
+    //      {$inc: { amount: req.body.amount }, $set: {id: req.body.id, name: req.body.name, user_id: req.user._id}}, 
+    //      {upsert: true}, 
+    //      function(err){
+    //         console.log(err)
+    //      })
     //delete req.body["_id"]
    
-    /*console.log(req.body, req.user)
+    console.log(req.body, req.user)
     console.log('add user coins');
+    
     let userCoins = new UserCoins(req.body);
     userCoins['user_id'] = req.user.id;
     userCoins.save();
-};*/
+
 
 }

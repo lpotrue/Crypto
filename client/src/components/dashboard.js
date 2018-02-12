@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 //import {fetchProtectedData} from '../actions/protected-data';
 import {fetchCurrencyData, fetchYourCoins} from '../actions/currency-data';
-import SimpleLineChart from './simpleLineChart';
+import SimpleAreaChart from './SimpleAreaChart';
 import Search from './Search';
 import {mapCurrency} from '../actions/currency-data';
 import Add from './Add';
@@ -63,8 +63,10 @@ export class Dashboard extends React.Component {
                <Search currency={this.props.currency} graphCoin={this.graphCoin}/>
                 
                </div>
-               <SimpleLineChart currency={this.props.currency} coinData ={this.props.coins}/>
+               <SimpleAreaChart currency={this.props.currency} coinData ={this.props.coins}/>
+               <h4>{this.props.selectedCoin.name} {this.props.selectedCoin.price_usd}</h4>
                <Stocks yourCoins={this.props.yourCoins}/>
+              
                 <Add selectedCoin={this.props.selectedCoin}/>
                 <Sell/>
                 

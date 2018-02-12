@@ -19,7 +19,18 @@ exports.findCurrency = function(req, res, next) {
 exports.findYourCoins = function(req, res, next) {
     console.log(req.user, "Coins")
     UserCoins.find({user_id: req.user.id}).exec().then(result => {
+      //loop thru the results array of coins and search the latest price for each one
+      result.forEach(coin=>{
+          let latest = latestPrices.find(
+            latestSnapshot => coin.symbol.toLowerCase()==latestSnapshot.symbol.toLowerCase()
+          )
+
+          coin.latest_price = latest.price_usd
+          console.log("The latest price for " + coin.symbol + " is " + latest.price_usd)
+        });
+
       console.log(result);
+
         return res.json({
             yourCoins: result
         });

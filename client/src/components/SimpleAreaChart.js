@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
 
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 const data = [
       {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
       {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
@@ -18,27 +18,27 @@ const tickFormatter = (tick) => moment(Number(tick) * 1000).format("MMM Do YYYY"
 const priceFormatter = (price) => Number(price);
     //console.log(this.props)
     //let currencyData = this.props.currency
-const SimpleLineChart = (props) => {
+const SimpleAreaChart = (props) => {
 
 	//render () {
 
     
   	return (
       <div>
-    	<LineChart width={800} height={300} data={props.coinData}
+    	<AreaChart width={800} height={300} data={props.coinData}
             margin={{top: 5, right: 30, left: 20, bottom: 5}}>
        <XAxis dataKey="last_updated" tickFormatter ={tickFormatter}/>
        <YAxis />
        <CartesianGrid strokeDasharray="3 3"/>
        <Tooltip/>
        <Legend />
-       <Line type="monotone" dataKey="price_usd"  stroke="#8884d8" activeDot={{r: 8}}/>
+       <Area type="monotone" dataKey="price_usd"  stroke="#00008B" activeDot={{r: 8}}/>
        {/*<Line type="monotone" dataKey="pv" stroke="#82ca9d" />*/}
-      </LineChart>
+      </AreaChart>
       </div>
     );
   //}
 }
 
 
-export default connect()(SimpleLineChart);
+export default connect()(SimpleAreaChart);
