@@ -25,7 +25,7 @@ exports.findYourCoins = function(req, res, next) {
             latestSnapshot => coin.symbol.toLowerCase()==latestSnapshot.symbol.toLowerCase()
           )
 
-          array[index].price_usd = latest.price_usd * coin.amount
+          array[index].price_usd = latest.price_usd 
           console.log("The latest price for " + coin.symbol + " is " + latest.price_usd)
         });
 
@@ -36,7 +36,6 @@ exports.findYourCoins = function(req, res, next) {
         });
     }).catch(err => {throw err});
 }
-
 
 
 exports.getCurrentPrice = function(req, res, next) {
@@ -54,7 +53,7 @@ function updatePrices(){
             json: true
         }, (error, response, body) => {
 
-            console.log("Updated prices!");
+            //console.log("Updated prices!");
             //console.log(body);
             latestPrices = body;
            
@@ -65,6 +64,74 @@ updatePrices(); // calls it the first time
 setInterval(updatePrices, 1000 * 60); // Calls it every minute
 
 
+exports.deleteCurrent = function(req, res, next) {
+    console.log(req.user, "Coins")
+    UserCoins.find({user_id: req.user.id}).exec().then(result => {
+      //loop thru the results array of coins and search the latest price for each one
+      result((coin, index, array)=>{
+          let decrement = latestPrices.find(
+            latestSnapshot => coin.symbol.toLowerCase()==latestSnapshot.symbol.toLowerCase()
+          )
+
+          array[index].price_usd = coin.price_usd.decrement - (1)
+          console.log("I am subtracting " + "1" +  coin.price_usd)
+        });
+
+      console.log(result);
+
+       
+    }).catch(err => {throw err});
+}
+
+exports.updateCurrency = (req, res) => {
+
+    const updated = {};
+    const updateableFields = ['amount', 'buyPrice'];
+    updateableFields.forEach(field => {
+        if(field in req.body) {
+            updated[`currencies.$.${field}`] = req.body[field];
+        }
+    });
+    const userId     = req.user_id;
+    const currencyId = req.params.coin.name;
+    return User
+        .findOneAndUpdate(
+            {"_id": userId, "coin.name.amount": currencyId},
+            {$set: updated},
+            {new: true}
+        )
+        .exec()
+        .then(updatedUser => {
+            res.status(201).json(updatedUser.currencies);
+        })
+        .catch(err => res.status(500).json({message: 'Something went wrong'}));
+}
+
+exports.deleteCurrency = (req, res) => {
+    console.log("banana!")
+    return User
+        .findByIdAndUpdate(req.user._id, {
+            $pull: {
+                'currencies': {"_id": req.params.coin._id}
+
+            }
+        }, {new: true})
+        .then(updatedUser => {
+            res.status(201).json(updatedUser.apiRepr().coins);
+        })
+        .catch(err => res.status(500).json({message: 'Internal server error'}));
+}
+
+exports.editYourCoins = (req, res) => {
+    console.log("edit", req.body)
+    return UserCoins.findOneAndUpdate({ name: req.body.coin.name, user_id: req.body.coin.user_id }, { $inc: { amount: req.body.num}})
+        .exec()
+        .then(updatedUser => {
+            res.status(201).json();
+        })
+        .catch(err => res.status(500).json({message: 'Something went wrong'}));
+    
+}
 
 
 

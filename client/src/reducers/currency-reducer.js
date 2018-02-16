@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     data: '',
-    currency: '',
+    currency: [],
     error: null,
     coins: [],
     selectedCoin: {},

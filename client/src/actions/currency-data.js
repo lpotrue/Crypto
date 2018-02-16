@@ -64,8 +64,42 @@ export const fetchYourCoins = () => (dispatch, getState) => {
         });
 };
 
+
 export const yourCurrency = yourCoins => ({
     type: "YOUR_CURRENCY",
     yourCoins
+});
+//edit coins
+export const editCoins = (coin, num) => (dispatch, getState) => {
+    console.log(coin, num)
+    let c = {coin: coin, num: num}
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/editcoins`, {
+        method: 'POST',
+        headers: {
+            // Provide our auth token as credentials
+            Authorization: `Bearer ${authToken}`,
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+         body: JSON.stringify(c)
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(({yourCoins}) => {
+            //dispatch(yourCurrency(yourCoins))
+            console.log("Zebra")
+            console.log(yourCoins)
+        })
+
+        .catch(err => {
+             console.log(err)
+            dispatch(fetchCurrencyDataError(err));
+        });
+};
+
+export const editCoin = yourCoins => ({
+    type: "EDIT",
+    
 });
 

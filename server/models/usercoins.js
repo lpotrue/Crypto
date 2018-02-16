@@ -7,6 +7,7 @@ const userCoinsSchema = new Schema({
     symbol: String,
     user_id: String,
     price_usd: Number,
+    latest: Number,
     amount: {
     	type: Number,
     }
