@@ -18,7 +18,7 @@ const getSuggestions = (value, languages) => {
 // based on the clicked suggestion. Teach Autosuggest how to calculate the
 // input value for every given suggestion.
 const getSuggestionValue = suggestion => suggestion.name;
-
+  
   const latestPrice = suggestion => suggestion.last_updated;
   const tickFormatter = (tick) => moment(Number(tick) * 1000).format("MMM Do YYYY"); 
 // Use your imagination to render suggestions.
@@ -79,7 +79,7 @@ export default class Search extends React.Component {
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: 'Search currency',
+      placeholder: 'Search currency', 
       value,
       onChange: this.onChange
     };

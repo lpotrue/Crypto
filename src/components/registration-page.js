@@ -14,7 +14,7 @@ export function RegistrationPage(props) {
         <div className="home">
             <h2>Register for Crypto</h2>
             <RegistrationForm />
-            <Link to="/">Login</Link>
+            <Link id="btnn" to="/">Login</Link>
         </div>
     );
 }

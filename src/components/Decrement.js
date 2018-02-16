@@ -2,12 +2,12 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import { add } from '../actions/auth';
-import { testFetch } from '../actions/protected-data';
-import { sendEntry } from '../actions/addNew';
+import { decrement } from '../actions/auth';
+//import { testFetch } from '../actions/protected-data';
+import { updateEntry } from '../actions/decrement';
 // import {required, nonEmpty} from '../validators';
 
-export class Sell extends React.Component {
+export class Decrement extends React.Component {
 
     componentDidMount() {
         //this.props.dispatch(Fetch());
@@ -20,8 +20,8 @@ export class Sell extends React.Component {
         
         let submission = this.props.selectedCoin;
 
-        submission.amount = values.amount
-        return this.props.dispatch(sendEntry(submission));
+        submission.amount = values.amount(-1)
+        return this.props.dispatch(updateEntry(submission));
     }
 
     render() {
@@ -40,19 +40,16 @@ export class Sell extends React.Component {
 
         return (
             <form
-                className="login-form"
+                className="decrement-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
                 {error}
                 <br />
-                    
-                    <label>Amount</label>
-                    <Field name="amount" component="input" type="text" placeholder="e.g 4000"/>
+                
+                    <button onClick={this.props.handleSubmit(values =>
+                    decrement.onSubmit(values))} disabled={this.props.isDecrementing}> - </button>
                 <br />
-                <button disabled={this.props.pristine || this.props.submitting}>
-                    Sell
-                </button>
             </form>
         );
     }
@@ -66,14 +63,14 @@ const mapStateToProps = state => {
     };
 };
 
-Sell = connect(
+Decrement = connect(
     mapStateToProps
-    )(Sell);
+    )(Decrement);
 
 export default reduxForm({
-    form: 'add',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('sell', 'email'))
-})(Sell);
+    form: 'decrement',
+    onSubmitFail: (errors, dispatch) => dispatch(focus('decrement', 'email'))
+})(Decrement);
 
 
 

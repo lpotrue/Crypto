@@ -1,14 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 //import {fetchProtectedData} from '../actions/protected-data';
 import {fetchCurrencyData, fetchYourCoins} from '../actions/currency-data';
 import SimpleAreaChart from './SimpleAreaChart';
 import Search from './Search';
-import {mapCurrency} from '../actions/currency-data';
+import {mapCurrency, editCoins} from '../actions/currency-data';
 import Add from './Add';
-import Sell from './Sell'
-import Stocks from './Stocks'
+import Decrement from './Decrement';
+import Stocks from './Stocks';
 //import styled from 'styled-components';
 
 
@@ -24,13 +25,26 @@ export class Dashboard extends React.Component {
         if (!this.props.loggedIn) {
             return;
         }
-        //this.props.dispatch(fetchProtectedData());
+        
         this.props.dispatch(fetchCurrencyData());
         this.props.dispatch(fetchYourCoins());
+       
+             this.graphCoin({name: "Bitcoin"});
+        
+       
     }
+    componentWillReceiveProps(){
+        console.log(this.props.currency)
+        
+    }
+    editCoin = (coin, num) => { 
+        this.props.dispatch(editCoins(coin, num));
+        console.log("coin", coin, num)
+    }
+
     graphCoin = (coin) => {
        
-        //console.log(coin, this.props)
+        console.log(coin, this.props)
         var result = this.props.currency.filter(function( obj ) {
             return obj.name == coin.name;
         });
@@ -54,10 +68,9 @@ export class Dashboard extends React.Component {
         return (
             <div className="dashboard">
                 <br />
-                <div className="dashboard-username">
-                    Email: {this.props.email}
-                </div>
-                <div>{this.props.result}</div>
+                
+                <h2>Type in a currency to track its progress</h2>
+                
                 <br />
                <div className="search">
                <Search currency={this.props.currency} graphCoin={this.graphCoin}/>
@@ -65,10 +78,10 @@ export class Dashboard extends React.Component {
                </div>
                <SimpleAreaChart currency={this.props.currency} coinData ={this.props.coins}/>
                <h4>{this.props.selectedCoin.name} {this.props.selectedCoin.price_usd}</h4>
-               <Stocks yourCoins={this.props.yourCoins}/>
-              
+               <Stocks yourCoins={this.props.yourCoins} edit = {this.editCoin}/>
+                
                 <Add selectedCoin={this.props.selectedCoin}/>
-                <Sell/>
+                <Decrement selectedCoin={this.props.decrementCoin}/>
                 
             </div>
 
@@ -87,9 +100,17 @@ const mapStateToProps = state => {
         coins: state.currency.coins,
         currency: state.currency.currency,
         selectedCoin: state.currency.selectedCoin,
-        yourCoins: state.currency.yourCoins
+        yourCoins: state.currency.yourCoins,
+        count: state.counter.count
 
     };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  //increment,
+  }, dispatch)
+
+export default connect(
+    mapStateToProps, 
+
+    )(Dashboard);
