@@ -17,7 +17,7 @@ import Stocks from './Stocks';
 export class Dashboard extends React.Component {
     constructor() {
     super();
-    this.state = {
+    this.state={
       coinData: []
     };
   }
@@ -29,7 +29,7 @@ export class Dashboard extends React.Component {
         this.props.dispatch(fetchCurrencyData());
         this.props.dispatch(fetchYourCoins());
        
-             this.graphCoin({name: "Bitcoin"});
+             
         
        
     }
@@ -76,10 +76,9 @@ export class Dashboard extends React.Component {
                <Search currency={this.props.currency} graphCoin={this.graphCoin}/>
                 
                </div>
-               <SimpleAreaChart currency={this.props.currency} coinData ={this.props.coins}/>
+               <SimpleAreaChart currency={this.props.currency} coinData={this.props.coins}/>
                <h4>{this.props.selectedCoin.name} {this.props.selectedCoin.price_usd}</h4>
-               <Stocks yourCoins={this.props.yourCoins} edit = {this.editCoin}/>
-                
+               <Stocks yourCoins={this.props.yourCoins} edit={this.editCoin} graphCoin={this.graphCoin}/>
                 <Add selectedCoin={this.props.selectedCoin}/>
                 <Decrement selectedCoin={this.props.decrementCoin}/>
                 

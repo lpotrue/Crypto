@@ -20,10 +20,10 @@ export class HeaderBar extends React.Component {
         }
         return (
             <div className="header-bar">
-
-                <h3>Crypto-Portfolio{logOutButton}</h3>
+              <h1><span>Just Hodl</span></h1><span><img src="https:/image.ibb.co/jurOAn/bitcoin.jpg" alt="bitcoin" border="0"/></span>
+                <h3>{logOutButton}</h3>
                 <div className="dashboard-username">
-                    Email: {this.props.email}
+                    {this.props.email}
                     <div id="email">{this.props.result}</div>
                 </div>
             </div>

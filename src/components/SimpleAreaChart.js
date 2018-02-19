@@ -25,8 +25,8 @@ const SimpleAreaChart = (props) => {
     
   	return (
       <div>
-    	<AreaChart width={800} height={300} data={props.coinData}
-            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+    	<AreaChart width={500} height={300} data={props.coinData}
+            margin={{top: 0, right: 0, left: 0, bottom: 0}}>
        <XAxis dataKey="last_updated" tickFormatter ={tickFormatter}/>
        <YAxis />
        <CartesianGrid strokeDasharray="3 3"/>
