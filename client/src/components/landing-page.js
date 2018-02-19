@@ -16,12 +16,11 @@ export function LandingPage(props) {
         <ul>
         
         <ul>
-            
-             <LoginForm />
+            <LoginForm />
         </ul>
         
         <ul>
-            <li><a href="/register">Register</a></li>
+            
         </ul>
 
         </ul>
@@ -31,13 +30,15 @@ export function LandingPage(props) {
             <div className="sp-globe"></div>
                 <h2 className="frame-1">WELCOME</h2>
                 <h2 className="frame-2">TO</h2>
-                <h2 className="frame-3">CRYPTO-PROJECT</h2>
-                <h2 className="frame-4">Discover</h2>
+                <h2 className="frame-3">Just Hodl</h2>
+                <h2 className="frame-4">
+                <div><span>Discover</span></div>
+                    
+                </h2>
                 <h2 className="frame-5">
-                <span>1400</span>
-                <div><span>Crytocurrencies</span></div>
-            </h2>
-       
+                <div><span>1400</span></div>
+                    <span>Cryptocurrencies</span>
+                </h2>
         </div>
         </div>
     

@@ -19,12 +19,14 @@ export class LoginForm extends React.Component {
             );
         }
         return (
+            
             <form
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
                 {error}
+                
                 <label htmlFor="email">Email</label>
                 <Field
                     component={Input}
@@ -44,6 +46,9 @@ export class LoginForm extends React.Component {
                 <button id="btnn" disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
+                <label id="dont">Don't Have An Account?</label>
+                <br/>
+                <button id="reg"><a href="/register">Create Account Now</a></button>
             </form>
         );
     }

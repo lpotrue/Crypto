@@ -19,7 +19,6 @@ const getSuggestions = (value, languages) => {
 // input value for every given suggestion.
 const getSuggestionValue = suggestion => suggestion.name;
   
-  const latestPrice = suggestion => suggestion.last_updated;
   const tickFormatter = (tick) => moment(Number(tick) * 1000).format("MMM Do YYYY"); 
 // Use your imagination to render suggestions.
 const renderSuggestion = suggestion => (

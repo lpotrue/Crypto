@@ -47,9 +47,7 @@ export class Decrement extends React.Component {
                 {error}
                 <br />
                 
-                    <button onClick={this.props.handleSubmit(values =>
-                    decrement.onSubmit(values))} disabled={this.props.isDecrementing}> - </button>
-                <br />
+                    
             </form>
         );
     }

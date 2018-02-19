@@ -40,7 +40,7 @@ export class Add extends React.Component {
 
         return (
             <form
-                className="login-form"
+                className="login-form2"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
@@ -49,10 +49,10 @@ export class Add extends React.Component {
                     <h4>{this.props.selectedCoin.name} {this.props.selectedCoin.price_usd}</h4>
                     <label>Amount</label>
                 <br/>
-                    <Field name="amount" component="input" type="text" placeholder="e.g 4000"/>
+                    <Field name="amount" component="input" type="text" placeholder="Enter Amount"/>
                 <br />
                 <button id="btnn" disabled={this.props.pristine || this.props.submitting}>
-                    Add
+                    Add New
                 </button>
             </form>
         );
