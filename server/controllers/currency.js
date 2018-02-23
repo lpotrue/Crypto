@@ -124,10 +124,41 @@ exports.deleteCurrency = (req, res) => {
 
 exports.editYourCoins = (req, res) => {
     console.log("edit", req.body)
-    return UserCoins.findOneAndUpdate({ name: req.body.coin.name, user_id: req.body.coin.user_id }, { $inc: { amount: req.body.num}})
+    return UserCoins.findOneAndUpdate({ name: req.body.coin.name, user_id: req.body.coin.user_id }, { $inc: { amount: req.body.num}}, {new: true, upsert: true})
         .exec()
         .then(updatedUser => {
-            res.status(201).json();
+            console.log(updatedUser)
+            if (Number(updatedUser.amount) <= 0 ){
+              console.log("pumpkin", req.body.coin, req.user.id)
+               UserCoins.remove({name: req.body.coin.name, user_id: req.user.id}, 
+                function(err, obj) {
+                  if (err) throw err;
+                  console.log(obj + " document(s) deleted");
+              });
+            }
+            res.status(201).json({yourCoins: updatedUser});
+        })
+        .catch(err => res.status(500).json({message: 'Something went wrong'}));
+    
+}
+
+
+exports.addYourCoins = (req, res) => {
+    console.log("add", req.body)
+    return UserCoins.findOneAndUpdate({ name: req.body.coin.name, user_id: req.user.id, price_usd: req.body.coin.price_usd, symbol: req.body.coin.symbol }, { $inc: { amount: req.body.num}}, {new: true, upsert: true})
+        .exec()
+        .then(updatedUser => {
+            console.log(updatedUser.amount)
+            if (Number(updatedUser.amount) <= 0 ){
+              console.log("pumpkin", req.body.coin, req.user.id)
+               UserCoins.remove({name: req.body.coin.name, user_id: req.user.id}, 
+                function(err, obj) {
+                  if (err) throw err;
+                  console.log(obj + " document(s) deleted");
+              });
+            }
+
+            res.status(201).json({yourCoins: updatedUser});
         })
         .catch(err => res.status(500).json({message: 'Something went wrong'}));
     

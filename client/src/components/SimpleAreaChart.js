@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
 
-import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Line, Legend} from 'recharts';
 const data = [
       {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
       {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
@@ -33,7 +33,7 @@ const SimpleAreaChart = (props) => {
        <Tooltip/>
        <Legend />
        <Area type="monotone" dataKey="price_usd"  stroke="#00008B" activeDot={{r: 8}}/>
-       {/*<Line type="monotone" dataKey="pv" stroke="#82ca9d" />*/}
+       <Line type="monotone" dataKey="last_updated" stroke="#82ca9d" />
       </AreaChart>
       </div>
     );

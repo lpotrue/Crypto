@@ -146,9 +146,9 @@ exports.addEntry = function(req, res, next) {
     console.log(req.body, req.user)
     console.log('add user coins');
     
-    let userCoins = new UserCoins(req.body);
+    let userCoins = new UserCoins(req.body.coin);
     userCoins['user_id'] = req.user.id;
     userCoins.save();
-
+    res.status(201).json({yourCoins: userCoins});
 
 }
