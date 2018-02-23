@@ -2,7 +2,7 @@
 // import * as io from 'socket.io-client'; 
 // var socket = io('http://localhost:3000'); 
 import {API_BASE_URL} from '../config';
-
+import {normalizeResponseErrors} from './utils';
 
 export const sendEntry = (entry) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
@@ -10,7 +10,7 @@ export const sendEntry = (entry) => (dispatch, getState) => {
     console.log(entry);
     return fetch(`${API_BASE_URL}/add`, {
         method: 'POST',
-        body: JSON.stringify(entry),
+        body: JSON.stringify({coin: entry, num: entry.amount}),
         headers: {
             // Provide our auth token as credentials
             Authorization: `Bearer ${authToken}`,
@@ -18,9 +18,23 @@ export const sendEntry = (entry) => (dispatch, getState) => {
             'Content-Type': 'application/json'
         }
     })
-    .then((response) => {
-        console.log(response);
-//         // socket.emit('add entry', entries);
+    .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(({yourCoins}) => {
+            //yourCoins[0].amount += num
+            
+            console.log("Cat")
+            console.log(yourCoins)
+            dispatch(addCoin(yourCoins))
+        })
 
-      })
+        .catch(err => {
+             console.log(err)
+            //dispatch(fetchCurrencyDataError(err));
+        });
+   
 }
+export const addCoin = (yourCoins) => ({
+    type: "ADD",
+    yourCoins
+});

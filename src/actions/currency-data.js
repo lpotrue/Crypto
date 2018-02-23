@@ -87,7 +87,8 @@ export const editCoins = (coin, num) => (dispatch, getState) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(({yourCoins}) => {
-            //dispatch(yourCurrency(yourCoins))
+            //yourCoins[0].amount += num
+            dispatch(editCoin(yourCoins))
             console.log("Zebra")
             console.log(yourCoins)
         })
@@ -98,9 +99,9 @@ export const editCoins = (coin, num) => (dispatch, getState) => {
         });
 };
 
-export const editCoin = yourCoins => ({
+export const editCoin = (yourCoins) => ({
     type: "EDIT",
-    
+    yourCoins
 });
 
 

@@ -5,8 +5,9 @@ const Stocks = (props) => (
 
     
     
-      <label id="coin-names">My Coins</label>
-           
+      <label id="coin-names">My Portfolio</label>
+        
+          
     <table>
       <tr>
         <th>Type</th>

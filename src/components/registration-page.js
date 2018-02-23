@@ -12,7 +12,7 @@ export function RegistrationPage(props) {
     }
     return (
         <div className="home">
-            <h2>Register for Crypto</h2>
+            <h2>Create an Account</h2>
             <RegistrationForm />
             <Link id="btnn" to="/">Login</Link>
         </div>

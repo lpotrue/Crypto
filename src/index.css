@@ -7,7 +7,8 @@ body {
 .login-form {
 	font-family:  'Raleway', sans-serif;
 	box-sizing: border-box;
-    background-color: rgb(77, 77, 77, .3);
+	background: rgb(204, 204, 204); 
+    background: rgba(204, 204, 204, 0.5);
     padding: 60px;
     height: 300px;
     color: black;
@@ -15,7 +16,6 @@ body {
    	border: 1px grey;
    	float: right;
    	border-radius: 3px;
-   	//font-family: Futura,Trebuchet MS,Arial,sans-serif; 
  }
 
  label{
@@ -36,20 +36,30 @@ body {
 	width: 130px;
 	color: white;
 	border-radius: 2px;
-	//background-color: white;
 	background-color: #43464B;
 	box-shadow: 6px 6px 6px #999;
 }
 
+.recharts-wrapper{
+	width: 100% !important;
+}
+
+
 #dont{
 	color: white;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
 h2 {
 	color: white;
 	font-family: 'Raleway', sans-serif;
 }
+@media only screen and (max-width: 500px) {
+  h2{ display: flex; }
+ .recharts-wrapper{ 
+ 		transform: scale(.7);
+ 		margin-left: -50px; }
+  } 
 
 body {
   //font-family: 'Roboto Mono', monospace;
@@ -71,7 +81,6 @@ body {
 
 .mine{
 	box-sizing: border-box;
-	//background-color: black;
 	background: rgb(204, 204, 204); 
     background: rgba(204, 204, 204, 0.5);
 	color: white;
@@ -82,19 +91,37 @@ body {
     box-shadow: 6px 6px 6px #999;
     margin-bottom: 5%;
 }
+@media only screen and (max-width: 600px) {
+  .mine{ width: 300px; 
+  		 height: 300px;
+  		 line-height: 3vh;}
+  }
 
 #my-chart{
 	position: absolute;
 	box-sizing: border-box;
-    opacity: .7;
-    margin-left: 5%;
-    margin-right: 5%;
+    
+    margin: auto;
+    color: blue;
+	text-align: center;
+    line-height: 5vh;
+    display: block;
+    border-radius: 3px;
+    box-shadow: 6px 6px 6px #999;
+    margin-bottom: 5%; 
+}
+
+
+.recharts-surface{
+	//position: absolute;
+	box-sizing: border-box;
+    opacity: 1;
+    margin: auto;
     color: blue;
 	text-align: center;
     line-height: 4vh;
     display: block;
     border-radius: 3px;
-    box-shadow: 6px 6px 6px #999;
     margin-bottom: 5%; 
 }
 
