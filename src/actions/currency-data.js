@@ -28,7 +28,13 @@ export const fetchCurrencyData = () => (dispatch, getState) => {
         .then(({data}) => {
             dispatch(fetchCurrencyDataSuccess(data))
             console.log("watermelon")
+            //map({name: "Bitcoin"})
             console.log(data)
+            var result = data.filter(function( obj ) {
+                return obj.name == "Bitcoin";
+            });
+            result.forEach((coin) =>{ coin.price_usd = Number(coin.price_usd) })
+            dispatch(mapCurrency(result));
         })
 
         .catch(err => {
@@ -36,6 +42,7 @@ export const fetchCurrencyData = () => (dispatch, getState) => {
             dispatch(fetchCurrencyDataError(err));
         });
 };
+
 export const mapCurrency = results => ({
     type: "MAP_CURRENCY",
     results
