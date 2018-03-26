@@ -19,37 +19,60 @@ export class LoginForm extends React.Component {
             );
         }
         return (
-            
+        <div id="everything">
+           <p>Welcome back to Just Hodl! View your coins.</p> 
+        <div className="login-form">
+
+          
+            <label className="tab">Sign In</label>
+             <br/>
+         
             <form
-                className="login-form"
+
+                //className="login-wrap"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
                 {error}
-                
-                <label htmlFor="email">Email</label>
-                <Field
+                <div disabled={this.props.pristine || this.props.submitting}></div>
+                 <div className="login-wrap">
+                <div className="group">
+                <label className="start" htmlFor="email">Email</label>
+                <Field className="second"
                     component={Input}
                     type="text"
                     name="email"
                     id="email"
                     validate={[required, nonEmpty]}
-                />
-                <label htmlFor="password">Password</label>
-                <Field
+                /></div>
+                <div className="group">
+                <label className="start" htmlFor="password">Password</label>
+                <Field className="second"
                     component={Input}
                     type="password"
                     name="password"
                     id="password"
                     validate={[required, nonEmpty]}
-                />
-                <button id="btnn" disabled={this.props.pristine || this.props.submitting}>
-                    Log in
-                </button>
-                <label id="dont">Don't Have An Account?</label>
-                <br/>
-                <button id="reg"><a href="/register">Create Account Now</a></button>
-            </form>
+                /></div>
+              <div className="group">
+              <button type="submit" className="sub" value="Sign In">SIGN IN</button>
+              </div>
+              
+                <p>Don't have and account?</p>
+                <a href ="/register">Sign up Here</a>
+                <div className="hr"></div></div>
+                <p>Demo Login:  me@me.com
+                  <br/>
+                   Password:  demo123</p>
+                 </form>
+
+            </div>
+          
+           <h5>"Hodl" or hold onto cryptocurrency. Create an account with us to learn about cryptocurrency trends.</h5>
+
+        </div>
+    
+            
         );
     }
 }

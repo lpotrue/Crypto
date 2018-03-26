@@ -6,11 +6,12 @@ import {
 
 const initialState = {
     data: '',
-    currency: [],
+    currency: {},
     error: null,
     coins: [],
     selectedCoin: {},
-    yourCoins: []
+    yourCoins: [],
+    
 };
 
 export default function reducer(state = initialState, action) {
@@ -19,8 +20,7 @@ export default function reducer(state = initialState, action) {
         console.log(action.data)
           return {
             ...state,
-            currency: action.data,
-            
+            currency: action.data,            
           }
          case 'MAP_CURRENCY':
         console.log(action)
@@ -36,6 +36,7 @@ export default function reducer(state = initialState, action) {
             yourCoins: [...action.yourCoins],
 
         }
+        
         case 'EDIT':
         console.log(action, state)
         return {
@@ -45,10 +46,8 @@ export default function reducer(state = initialState, action) {
         }
         case 'ADD':
         console.log(action, state)
-        //console.log(edit_coins (state, action))
         return {
             ...state,
-            //yourCoins: [action.yourCoins, ...state.yourCoins]
              yourCoins: [action.yourCoins, ...add_coins(state, action)]
 
         }
@@ -61,7 +60,6 @@ export default function reducer(state = initialState, action) {
 }
 
  function edit_coins (state, action){
-    //let yourCoins = [action.yourCoins, ...state.yourCoins]
     let c = []
     for(let i = 0; i < state.yourCoins.length; i++){
       if(state.yourCoins[i]._id != action.yourCoins._id){
@@ -73,11 +71,9 @@ export default function reducer(state = initialState, action) {
     }
     console.log(c)
     return c
-    //return state.yourCoins.map((coin, i) => coin._id == action.yourCoins._id ? action.yourCoins: coin)
 }
 
 function add_coins (state, action){
-    //let yourCoins = [action.yourCoins, ...state.yourCoins]
     let c = []
     for(let i = 0; i < state.yourCoins.length; i++){
       if(state.yourCoins[i]._id != action.yourCoins._id){
@@ -86,24 +82,5 @@ function add_coins (state, action){
     }
     console.log(c)
     return c
-    //return state.yourCoins.map((coin, i) => coin._id == action.yourCoins._id ? action.yourCoins: coin)
 }
 
-/*function add_coins (state, action){
-    return state.yourCoins.map((coin, i) => {
-        if (coin._id == action.yourCoins._id){
-         let newCoin = action.yourCoins
-         newCoin.amount += coin.amount
-         if (newCoin.amount < 1){
-            newCoin = null
-         }
-         return newCoin
-        } 
-        else{
-          return coin
-        }
-
-    })
-    //return state.yourCoins.map((coin, i) => coin._id == action.yourCoins._id ? action.yourCoins: coin)
-}*/
-  

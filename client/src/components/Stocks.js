@@ -25,7 +25,7 @@ const Stocks = (props) => (
        <tr>
         <td id="left" onClick={ ()=>props.selectCoin(coin)} key={coin._id}>{coin.name} ({coin.symbol})</td>
         <td id="amount" value={coin._id}>{coin.amount}</td>
-        <td id="right" value={coin._id}>{coin.price_usd}</td>
+        <td id="right" value={coin._id}>{coin.price_usd}</td> 
         <td id="total" value={coin._id}>{coin.price_usd * coin.amount}</td>
         {/*<td>{props.count}</td>*/}
         

@@ -22,9 +22,9 @@ const getSuggestionValue = suggestion => suggestion.name;
   const tickFormatter = (tick) => moment(Number(tick) * 1000).format("MMM Do YYYY"); 
 // Use your imagination to render suggestions.
 const renderSuggestion = suggestion => (
-  <div>
+  <div id="suggest">
     {suggestion.name} ({suggestion.symbol})
-    
+    <br /><span>&#36;</span>{suggestion.price_usd}
   </div>
 );
 
@@ -78,7 +78,7 @@ export default class Search extends React.Component {
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: 'Search currency', 
+      placeholder: 'Search Currency', 
       value,
       onChange: this.onChange
     };

@@ -3,16 +3,12 @@ import {Field, reduxForm, focus} from 'redux-form';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import { decrement } from '../actions/auth';
-//import { testFetch } from '../actions/protected-data';
 import { updateEntry } from '../actions/decrement';
-// import {required, nonEmpty} from '../validators';
 
 export class Decrement extends React.Component {
 
     componentDidMount() {
-        //this.props.dispatch(Fetch());
     }
-
 
     onSubmit(values) {
       

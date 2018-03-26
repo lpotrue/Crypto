@@ -13,31 +13,29 @@ const data = [
       {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
 ];
 
-const dummy =[{"_id":"5a6e561c98c0350004fae706","id":"bitcoin","name":"Bitcoin","symbol":"BTC","price_usd":11816.1,"price_btc":"1.0","percent_change_24h":"2.61","last_updated":"1517180367","__v":0},{"_id":"5a6fa7a6fd189000040bac3c","id":"bitcoin","name":"Bitcoin","symbol":"BTC","price_usd":11191.6,"price_btc":"1.0","percent_change_24h":"-5.31","last_updated":"1517266767","__v":0},{"_id":"5a70f9156d86e80004a4fa07","id":"bitcoin","name":"Bitcoin","symbol":"BTC","price_usd":10352.8,"price_btc":"1.0","percent_change_24h":"-8.26","last_updated":"1517353167","__v":0}]
 const tickFormatter = (tick) => moment(Number(tick) * 1000).format("MMM Do YYYY"); 
 const priceFormatter = (price) => Number(price);
-    //console.log(this.props)
-    //let currencyData = this.props.currency
 const SimpleAreaChart = (props) => {
 
-	//render () {
-
     
-  	return (
-      <div>
+  	 return (
+        <div>
+        
     	<AreaChart width={500} height={300} data={props.coinData}
             margin={{top: 0, right: 0, left: 0, bottom: 0}}>
-       <XAxis dataKey="last_updated" tickFormatter ={tickFormatter}/>
+       <XAxis dataKey="last_updated" tickFormatter={tickFormatter}/>
        <YAxis />
        <CartesianGrid strokeDasharray="3 3"/>
        <Tooltip/>
-       <Legend />
+     
        <Area type="monotone" dataKey="price_usd"  stroke="#00008B" activeDot={{r: 8}}/>
-       <Line type="monotone" dataKey="last_updated" stroke="#82ca9d" />
+       <Line type="monotone" dataKey="last_updated" stroke="#82ca9d" tickFormatter={tickFormatter}/>
+
       </AreaChart>
+
       </div>
     );
-  //}
+  
 }
 
 

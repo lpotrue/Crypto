@@ -9,7 +9,6 @@ const router = express.Router();
 
 const jsonParser = bodyParser.json();
 
-//const EntryController = require('./entries');
 const UsersController = require('./users');
 const AuthController = require('./auth');
 const CurrencyController = require('./currency');
@@ -32,6 +31,8 @@ router.post('/add', [passport.authenticate('jwt', {session: false}), jsonParser]
 router.post('/editcoins', [passport.authenticate('jwt', {session: false}), jsonParser], CurrencyController.editYourCoins);
 
 router.get('/currency', jsonParser, CurrencyController.findCurrency);
+
+//router.get('/topcoins', jsonParser, CurrencyController.getTopCoins);
 
 router.get('/yourcoins', [passport.authenticate('jwt', {session: false}), jsonParser], CurrencyController.findYourCoins);
 

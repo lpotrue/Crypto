@@ -33,7 +33,7 @@ export const fetchCurrencyData = () => (dispatch, getState) => {
             var result = data.filter(function( obj ) {
                 return obj.name == "Bitcoin";
             });
-            result.forEach((coin) =>{ coin.price_usd = Number(coin.price_usd) })
+            result.forEach((coin) =>{ coin.price_usd = Number(coin.price_usd), coin.rank = Number(coin.rank), coin.percent_change_1h = Number(coin.percent_change_1h), coin.percent_change_7d = Number(coin.percent_change_7d), coin.percent_change_24h = Number(coin.percent_change_24h)})
             dispatch(mapCurrency(result));
         })
 

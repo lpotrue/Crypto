@@ -21,7 +21,6 @@ export const sendEntry = (entry) => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(({yourCoins}) => {
-            //yourCoins[0].amount += num
             
             console.log("Cat")
             console.log(yourCoins)
@@ -30,7 +29,6 @@ export const sendEntry = (entry) => (dispatch, getState) => {
 
         .catch(err => {
              console.log(err)
-            //dispatch(fetchCurrencyDataError(err));
         });
    
 }

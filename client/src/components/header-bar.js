@@ -14,19 +14,29 @@ export class HeaderBar extends React.Component {
         // Only render the log out button if we are logged in
         let logOutButton;
         if (this.props.loggedIn) {
+            <div>{this.props.email}</div>
             logOutButton = (
-                <button id="btnn" onClick={() => this.logOut()}>Log out</button>
-            );
+                
+
+                <button id="btnnn" onClick={() => this.logOut()}>LOG OUT</button>
+                );
+           
+           
         }
         return (
             <div className="header-bar">
-              <h1><span>Just Hodl</span></h1><span><img src="https:/image.ibb.co/jurOAn/bitcoin.jpg" alt="bitcoin" border="0"/></span>
-                <h3>{logOutButton}</h3>
+               
+                  <li><div id="lo">{logOutButton}</div></li>
+              <div id="just">
+                <span><h1>Just Hodl</h1></span>
+                <span><img src="https:/image.ibb.co/jurOAn/bitcoin.jpg" alt="bitcoin" border="0"/></span>
+              </div>
                 <div className="dashboard-username">
                     {this.props.email}
-                    <div id="email">{this.props.result}</div>
+                    
                 </div>
             </div>
+
         );
     }
 }

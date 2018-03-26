@@ -5,6 +5,11 @@ import {Redirect} from 'react-router-dom';
 import { add } from '../actions/auth';
 import { testFetch } from '../actions/protected-data';
 import { sendEntry } from '../actions/addNew';
+import SimplePieChart from './SimplePieChart';
+import HourPieChart from './HourPieChart';
+import DayPieChart from './DayPieChart';
+import RankPieChart from './RankPieChart';
+import WeekPieChart from './WeekPieChart';
 // import {required, nonEmpty} from '../validators';
 
 export class Add extends React.Component {
@@ -46,7 +51,9 @@ export class Add extends React.Component {
                 )}>
                 {error}
                 <br />
-                    <h4>{this.props.selectedCoin.name} {this.props.selectedCoin.price_usd}</h4>
+                <h4>{this.props.selectedCoin.name}</h4>
+
+                    
                     <label>Amount</label>
                 <br/>
                     <Field name="amount" component="input" type="text" placeholder="Enter Amount"/>
@@ -58,6 +65,8 @@ export class Add extends React.Component {
         );
     }
 }
+
+
 
 const mapStateToProps = state => {
     const {currentUser} = state.auth;
