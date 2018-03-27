@@ -19,17 +19,15 @@ export class LoginForm extends React.Component {
             );
         }
         return (
-        <div id="everything">
+         <div id="everything">
            <p>Welcome back to Just Hodl! View your coins.</p> 
-        <div className="login-form">
+           <div className="login-form">
 
           
             <label className="tab">Sign In</label>
              <br/>
          
             <form
-
-                //className="login-wrap"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
@@ -55,7 +53,7 @@ export class LoginForm extends React.Component {
                     validate={[required, nonEmpty]}
                 /></div>
               <div className="group">
-              <button type="submit" className="sub" value="Sign In">SIGN IN</button>
+                <button type="submit" className="sub" value="Sign In">SIGN IN</button>
               </div>
               
                 <p>Don't have and account?</p>
@@ -64,7 +62,7 @@ export class LoginForm extends React.Component {
                 <p>Demo Login:  me@me.com
                   <br/>
                    Password:  demo123</p>
-                 </form>
+             </form>
 
             </div>
           

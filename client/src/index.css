@@ -12,6 +12,8 @@ h1 {
 	color: white;
 	text-align: center;
 	margin: auto;
+	padding-right: 50px;
+	font-size: 2.5em;
 }
 
 h2 {
@@ -106,6 +108,7 @@ img{
 	height: 40px;
 	width: 40px;
 	text-align: center;
+	
 }
 
 .dashboard{
@@ -134,7 +137,7 @@ img{
 	background-color: black;
 	opacity: .9;
 	width: 100%;
-	height: 80px;
+	height: 89px;
 	margin-top: 0;
 	margin-bottom: 0;
 	
@@ -164,7 +167,7 @@ img{
 
 .home{
 	background: url("https://ak6.picdn.net/shutterstock/videos/7739563/thumb/1.jpg")no-repeat center fixed;
-	margin-top: 200px;
+	
 }
 
 #activeLight{
@@ -228,6 +231,7 @@ img{
     text-overflow: clip;
     background: #e0a905;
     text-shadow: -1px 1px 0 rgba(0, 0, 0, 0.12);
+    position: absolute;
 }
 
 #btnnn:hover{
@@ -264,8 +268,9 @@ img{
 	position: relative;
 	transform-style: preserve-3d;
 	background-color: rgba(40,57,101,.9);
-    color: #6a6f8c;
+    color: dodgerblue;
     margin: auto;
+    padding-bottom: 3%;
     padding-top: 5%;
     font-size: 15px;
     font-family: 20px 'Open Sans',sans-serif;
@@ -435,15 +440,12 @@ img{
 	font-family: 'Dosis', sans-serif;
 }
 
-.particles {
-  background: #060e1b;
-  overflow: hidden;
-}
 
-canvas {
-  background: #060e1b;
-  overflow: hidden;
-  opacity: 0.5;
+#particles canvas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
 }
 
 #rank{
@@ -879,7 +881,7 @@ img{
 	opacity: 1.0;
 	width: 40px;
 	height: 40px;
-	
+	margin-left: 55px;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
@@ -1066,9 +1068,15 @@ img{
 	background-color: #1B2631;
 }
 
-#search, #view{
-	font-size: 1.5em;
+#name{
+	font-size: 1.25em;
 	color: #00B2A7;
+	margin-left: 8%;
+}
+
+#view, #search{
+	font-size: 1.5em;
+	color: dodgerblue;
 }
 
 #nav{

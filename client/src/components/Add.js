@@ -51,7 +51,7 @@ export class Add extends React.Component {
                 )}>
                 {error}
                 <br />
-                <h4>{this.props.selectedCoin.name}</h4>
+                <h4>{this.props.selectedCoin.name}  <span>&#36;</span>{this.props.selectedCoin.price_usd}</h4>
 
                     
                     <label>Amount</label>

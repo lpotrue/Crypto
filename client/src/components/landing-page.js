@@ -11,21 +11,14 @@ export function LandingPage(props) {
         return <Redirect to="/dashboard" />;
     }
 
+    
+    
     return (
-      <div className="home">
-       <Particles/>
-        {/*<div className="cont_forms" >
-        <div className="cont_img_back_">
-        <div class="cont_back_info">
-        <div class="cont_img_back_grey">
-        <div className="cotn_principal">
-            <img src="https://ak6.picdn.net/shutterstock/videos/7739563/thumb/1.jpg"/>
-        </div>
-         </div>
-         </div>*/}
+      
+            
+        <div id="particles">
         <LoginForm/>
    
-        
        
      
     </div>

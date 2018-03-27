@@ -70,14 +70,14 @@ export class Dashboard extends React.Component {
          
              <section className="stats">
                 <a href="#searching" className="arrow-container">
-                  <div className="arrow"></div>
+                  <span className="arrow"></span>
                 </a>
              
-                <h3 id="search">{this.props.selectedCoin.name} {this.props.selectedCoin.symbol}</h3>
+                <span><h3 id="name">{this.props.selectedCoin.name} ({this.props.selectedCoin.symbol})</h3></span>
 
                  <div id="rank">
                   <span id="statss"><SimplePieChart id="map" currency={this.props.currency} coinData={this.props.coins}/><span>&#36;</span>{this.props.selectedCoin.price_usd}</span>
-                    Price in USD</div>
+                   Price in USD</div>
 
                 <div id="rank1">
                  <span id="stats1"><RankPieChart id="map" currency={this.props.currency} coinData={this.props.coins} graphCoin={this.graphCoin}/><span>&#35;</span>{this.props.selectedCoin.rank}</span>
@@ -93,11 +93,11 @@ export class Dashboard extends React.Component {
                     
                 <div id="rank4">
                   <span id="stats4"><WeekPieChart id="map" currency={this.props.currency} coinData={this.props.coins} graphCoin={this.graphCoin}/>{this.props.selectedCoin.percent_change_7d}<span>&#37;</span></span>
-                    7 Day Change</div>
+                   7 Day Change</div>
               </span>            
                  <div id="graph">
                    <SimpleAreaChart id="map" currency={this.props.currency} coinData={this.props.coins}/>
-
+                  <h5>{this.props.selectedCoin.name} ({this.props.selectedCoin.symbol})</h5>
                 </div>
             </section>
             <div id="tabs">
