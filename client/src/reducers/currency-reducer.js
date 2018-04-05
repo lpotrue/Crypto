@@ -40,8 +40,6 @@ export default function reducer(state = initialState, action) {
         return {
             ...state,
             coinPrices: action.data
-            //selectedCoin: action.data
-            
         }
         
         case 'EDIT':
