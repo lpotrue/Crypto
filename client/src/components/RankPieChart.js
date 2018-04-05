@@ -17,7 +17,7 @@ const RankPieChart = (props) => {
     return (
 		
       <PieChart width={100} height={100}>
-        <Pie data={props.coinData} dataKey="price_usd" innerRadius={40} outerRadius={50} fill="blueviolet"/>
+        <Pie data={props.coinPrices} dataKey="rank" innerRadius={40} outerRadius={50} fill="blueviolet"/>
         <Tooltip/>
      
        </PieChart>

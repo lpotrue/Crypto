@@ -14,7 +14,7 @@ const WeekPieChart = (props) => {
   
     return (
       <PieChart width={100} height={100}>
-        <Pie data={props.coinData} dataKey="price_usd" innerRadius={40} outerRadius={50} fill="deepskyblue"/>
+        <Pie data={props.coinPrice} dataKey="price_usd" innerRadius={40} outerRadius={50} fill="deepskyblue"/>
         <Tooltip/>
        </PieChart>
     );

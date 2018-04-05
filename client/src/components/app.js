@@ -58,17 +58,14 @@ export class App extends React.Component {
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/add" component={Add} />
                 <Route exact path="/decrement" component={Decrement} />
-             class App extends Component{
+            
   
-             
-           
-        
-    };
  
-}
+
     
       
      </div>
+     
         );
     }
 }

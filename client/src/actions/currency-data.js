@@ -1,5 +1,6 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
+const request = require('request');
 
 
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
@@ -13,6 +14,14 @@ export const fetchCurrencyDataError = error => ({
     type: FETCH_PROTECTED_DATA_ERROR,
     error
 });
+
+export const FETCH_COIN_PRICES = 'FETCH_COIN_PRICES';
+export const fetchCoinPrices = data => ({
+    type: FETCH_COIN_PRICES,
+    data
+})
+
+
 
 export const fetchCurrencyData = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
@@ -29,7 +38,7 @@ export const fetchCurrencyData = () => (dispatch, getState) => {
             dispatch(fetchCurrencyDataSuccess(data))
             console.log("watermelon")
             //map({name: "Bitcoin"})
-            console.log(data)
+            //console.log(data)
             var result = data.filter(function( obj ) {
                 return obj.name == "Bitcoin";
             });
@@ -43,10 +52,12 @@ export const fetchCurrencyData = () => (dispatch, getState) => {
         });
 };
 
+
 export const mapCurrency = results => ({
     type: "MAP_CURRENCY",
     results
 });
+
 //for yourCoins
 export const fetchYourCoins = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
@@ -71,11 +82,11 @@ export const fetchYourCoins = () => (dispatch, getState) => {
         });
 };
 
-
 export const yourCurrency = yourCoins => ({
     type: "YOUR_CURRENCY",
     yourCoins
 });
+
 //edit coins
 export const editCoins = (coin, num) => (dispatch, getState) => {
     console.log(coin, num)
@@ -110,5 +121,37 @@ export const editCoin = (yourCoins) => ({
     type: "EDIT",
     yourCoins
 });
+
+/*export const fetchLatestPrices = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/updatePrices`, {
+        method: 'GET',
+        headers: {
+            // Provide our auth token as credentials
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(({latestPrices}) => {
+            dispatch(currentPrices(latestPrices))
+            console.log("Blackberry")
+            console.log(latestPrices)
+        
+            })
+           
+        .catch(err => {
+             console.log(err)
+            dispatch(fetchCurrencyDataError(err));
+        });
+};
+
+export const currentPrices = latestPrices => ({
+    type: "CURRENT_PRICES",
+    latestPrices
+});*/
+
+
+
 
 

@@ -32,10 +32,10 @@ router.post('/editcoins', [passport.authenticate('jwt', {session: false}), jsonP
 
 router.get('/currency', jsonParser, CurrencyController.findCurrency);
 
-//router.get('/topcoins', jsonParser, CurrencyController.getTopCoins);
+router.get('/latestprices', [passport.authenticate('jwt', {session: false}), jsonParser], CurrencyController.findCurrentPrices);
 
 router.get('/yourcoins', [passport.authenticate('jwt', {session: false}), jsonParser], CurrencyController.findYourCoins);
 
-router.get('/currentprice/:symbol', jsonParser, CurrencyController.getCurrentPrice);
+//router.get('/currentprice/:symbol', jsonParser, CurrencyController.getCurrentPrice);
 
 module.exports = {router, basicStrategy, jwtStrategy};

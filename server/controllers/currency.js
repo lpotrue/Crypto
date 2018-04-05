@@ -7,9 +7,11 @@ const request = require('request');
 // async function
 exports.findCurrency = function(req, res, next) {
     console.log('sweet potato 2');
+    // call get current price  for coin, and get the 7d delta
     Coins.find().exec().then(result => {
         return res.json({
             data: result
+
         });
     }).catch(err => {throw err});
 }
@@ -39,7 +41,7 @@ exports.findYourCoins = function(req, res, next) {
 }
 
 
-exports.getCurrentPrice = function(req, res, next) {
+exports.findCurrentPrices = function(req, res, next) {
   let result = latestPrices.find(function(coin){
     return (coin.symbol.toLowerCase() === req.params.symbol.toLowerCase());
   })
@@ -55,7 +57,7 @@ function updatePrices(){
         }, (error, response, body) => {
 
             latestPrices = body;
-            //console.log(body)
+            //console.log(latestPrices)
            
        });
 }
@@ -145,7 +147,7 @@ exports.editYourCoins = (req, res) => {
 
 exports.addYourCoins = (req, res) => {
     console.log("add", req.body)
-    return UserCoins.findOneAndUpdate({ name: req.body.coin.name, user_id: req.user.id, price_usd: req.body.coin.price_usd, symbol: req.body.coin.symbol}, { $inc: { amount: req.body.num}}, {new: true, upsert: true})
+    return UserCoins.findOneAndUpdate({ name: req.body.coin.name, user_id: req.user.id, price_usd: req.body.coin.price_usd, percent_change_1h: req.body.coin.percent_change_1h, percent_change_24h: req.body.coin.percent_change_24h, percent_change_7d: req.body.coin.percent_change_7d, rank: req.body.coin.rank, symbol: req.body.coin.symbol}, { $inc: { amount: req.body.num}}, {new: true, upsert: true})
         .exec()
         .then(updatedUser => {
             console.log(updatedUser.amount)

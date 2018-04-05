@@ -14,8 +14,10 @@ import RankPieChart from './RankPieChart';
 import HourPieChart from './HourPieChart';
 import DayPieChart from './DayPieChart';
 import WeekPieChart from './WeekPieChart';
-
+import Stats from './Stats';
+//import {latestPrices} from '../actions/currency-data';
 import { ScrollTo } from "react-scroll-to";
+import _ from 'lodash';
 
 
 export class Dashboard extends React.Component {
@@ -25,6 +27,7 @@ export class Dashboard extends React.Component {
       coinData: []
     };
   }
+
     componentDidMount() {
         if (!this.props.loggedIn) {
             return;
@@ -32,13 +35,13 @@ export class Dashboard extends React.Component {
         
         this.props.dispatch(fetchCurrencyData());
         this.props.dispatch(fetchYourCoins());
-
+      
        
     }
     componentWillReceiveProps(){
-        console.log(this.props.currency)
-        
+        //console.log(this.props.currency)
     }
+ 
     editCoin = (coin, num) => { 
         this.props.dispatch(editCoins(coin, num));
         console.log("coin", coin, num)
@@ -59,11 +62,20 @@ export class Dashboard extends React.Component {
     }
 
     render() {
+      console.log(this.props.selectedCoin)
         // Only visible to logged in users
         if (!this.props.loggedIn) {
             return <Redirect to="/" />;
         }
+        //console.log(this.props.coinPrice)
+        let coinPrice = {}
+         if(this.props.selectedCoin.symbol)
+          { 
+            coinPrice = _.find(this.props.coinPrices, "symbol", this.props.selectedCoin.symbol);
 
+         }
+          console.log(this.props.selectedCoin)
+          //console.log(coinPrice)
         return (
           <div className="dashboard">
             
@@ -72,15 +84,17 @@ export class Dashboard extends React.Component {
                 <a href="#searching" className="arrow-container">
                   <span className="arrow"></span>
                 </a>
+
+                
              
                 <span><h3 id="name">{this.props.selectedCoin.name} ({this.props.selectedCoin.symbol})</h3></span>
 
                  <div id="rank">
-                  <span id="statss"><SimplePieChart id="map" currency={this.props.currency} coinData={this.props.coins}/><span>&#36;</span>{this.props.selectedCoin.price_usd}</span>
+                  <span id="statss"><SimplePieChart id="map"/><span>&#36;</span>{this.props.selectedCoin.price_usd}</span>
                    Price in USD</div>
 
                 <div id="rank1">
-                 <span id="stats1"><RankPieChart id="map" currency={this.props.currency} coinData={this.props.coins} graphCoin={this.graphCoin}/><span>&#35;</span>{this.props.selectedCoin.rank}</span>
+                 <span id="stats1"><RankPieChart id="map"/><span>&#35;</span>{this.props.selectedCoin.rank}</span>
                    Rank</div>
 
                 <div id="rank3">
@@ -88,13 +102,13 @@ export class Dashboard extends React.Component {
                    1 Hour Change</div>
               <span id="together">
                 <div id="rank2">
-                   <span id="stats2"><DayPieChart currency={this.props.currency} coinData={this.props.coins}/>{this.props.selectedCoin.percent_change_24h}<span>&#37;</span></span>
+                   <span id="stats2"><DayPieChart currency={this.props.currency} latestPrices={this.props.latestPrices}/></span>
                    24 Hour Change</div>
                     
                 <div id="rank4">
                   <span id="stats4"><WeekPieChart id="map" currency={this.props.currency} coinData={this.props.coins} graphCoin={this.graphCoin}/>{this.props.selectedCoin.percent_change_7d}<span>&#37;</span></span>
                    7 Day Change</div>
-              </span>            
+              </span>         
                  <div id="graph">
                    <SimpleAreaChart id="map" currency={this.props.currency} coinData={this.props.coins}/>
                   <h5>{this.props.selectedCoin.name} ({this.props.selectedCoin.symbol})</h5>
@@ -118,7 +132,7 @@ export class Dashboard extends React.Component {
               
 
                <h3 id="view">Portfolio</h3>
-                 <Stocks yourCoins={this.props.yourCoins} edit={this.editCoin} graphCoin={this.graphCoin} selectCoin={this.graphCoin}/><Decrement selectedCoin={this.props.decrementCoin}/>
+                 <Stocks yourCoins={this.props.yourCoins} edit={this.editCoin} graphCoin={this.graphCoin} selectedCoin={this.graphCoin}/><Decrement selectedCoin={this.props.decrementCoin}/>
 
            
             
@@ -131,27 +145,6 @@ export class Dashboard extends React.Component {
     }
 }
  
-
-
-
-
-  
-              {/*<div className="container">
-                <div className="feature-progress" aria-hidden="true">
-                  <div className="feature-progress-ball-wrap">
-                    <div className="feature-progress-ball"></div>
-                  </div>
-
-
-
-                  <div className="feature-progress-platform"></div>
-                  <div className="feature-progress-platform"></div>
-                  <div className="feature-progress-platform"></div>
-                  <div className="feature-progress-platform"></div>
-                  <div className="feature-progress-platform"></div>
-                  <div className="feature-progress-platform"></div>
-                  <div className="feature-progress-platform"></div>*/}
-
     function TopscrollTo() {
         if(window.scrollY!=0)
     {
@@ -184,8 +177,8 @@ const mapStateToProps = state => {
         selectedCoin: state.currency.selectedCoin,
         yourCoins: state.currency.yourCoins,
         count: state.counter.count,
-        
-
+        latestPrices: state.currency.latestPrices,
+        coinPrices: state.currency.coinPrices,
     };
 };
 const mapDispatchToProps = dispatch => bindActionCreators({

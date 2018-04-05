@@ -1,3 +1,4 @@
+//const request = require('request');
 import {
     FETCH_PROTECTED_DATA_SUCCESS,
     FETCH_PROTECTED_DATA_ERROR
@@ -11,45 +12,47 @@ const initialState = {
     coins: [],
     selectedCoin: {},
     yourCoins: [],
+    coinPrices:[],
     
 };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case 'FETCH_CURRENCY':
-        console.log(action.data)
           return {
             ...state,
-            currency: action.data,            
+             currency: action.data     
           }
          case 'MAP_CURRENCY':
-        console.log(action)
-          return {
+         return {
             ...state,
             coins: [...action.results],
             selectedCoin: {...action.results[action.results.length-1]}
           }
         case 'YOUR_CURRENCY':
-        console.log(action)
         return {
             ...state,
-            yourCoins: [...action.yourCoins],
+            yourCoins: [...action.yourCoins]
 
+        }
+        case 'FETCH_COIN_PRICES':
+        console.log(action.data)
+        return {
+            ...state,
+            coinPrices: action.data
+            //selectedCoin: action.data
+            
         }
         
         case 'EDIT':
-        console.log(action, state)
         return {
             ...state,
             yourCoins: edit_coins (state, action)
-
         }
         case 'ADD':
-        console.log(action, state)
         return {
             ...state,
              yourCoins: [action.yourCoins, ...add_coins(state, action)]
-
         }
 
         default:
@@ -84,3 +87,22 @@ function add_coins (state, action){
     return c
 }
 
+
+
+
+/*var latestPrices;
+
+function updatePrices(){
+  request({
+            url: `https://api.coinmarketcap.com/v1/ticker/?limit=0`,
+            json: true
+        }, (error, response, body) => {
+
+            latestPrices = body;
+            console.log(latestPrices)
+            console.log("Jaguar_____")
+           
+       });
+
+}*/
+ 

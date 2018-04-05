@@ -11,7 +11,7 @@ const CryptoCoinsSchema = new Schema({
     percent_change_24h: String,
     percent_change_1h: String,
     percent_change_7d: String,
-    rank: Number,
+    rank: String,
 
 
 });
