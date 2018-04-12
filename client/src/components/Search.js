@@ -1,6 +1,6 @@
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
-
+import moment from 'moment';
 // Imagine you have a list of languages that you'd like to autosuggest.
 
 
@@ -9,21 +9,22 @@ const getSuggestions = (value, languages) => {
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
 
-  return inputLength === 0 ? [] : languages.filter(lang =>
+  return inputLength === 0 ? [] : [languages.find(lang =>
     lang.name.toLowerCase().slice(0, inputLength) === inputValue
-  );
+  )];
 };
 
 // When suggestion is clicked, Autosuggest needs to populate the input
 // based on the clicked suggestion. Teach Autosuggest how to calculate the
 // input value for every given suggestion.
 const getSuggestionValue = suggestion => suggestion.name;
-
+  
+  const tickFormatter = (tick) => moment(Number(tick) * 1000).format("MMM Do YYYY"); 
 // Use your imagination to render suggestions.
 const renderSuggestion = suggestion => (
-  <div>
-    {suggestion.name}
-    {suggestion.price_usd}
+  <div id="suggest">
+    {suggestion.name} ({suggestion.symbol})
+    <br /><span>&#36;</span>{suggestion.price_usd}
   </div>
 );
 
@@ -41,7 +42,14 @@ export default class Search extends React.Component {
       suggestions: []
     };
   }
-
+  addCoin = () =>{
+    console.log("addCoin clicked")
+  };
+  onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) =>{
+        console.log("onSuggestionSelected", suggestion);
+        console.log(this)
+      this.props.graphCoin(suggestion)
+  };
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
@@ -70,7 +78,7 @@ export default class Search extends React.Component {
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: 'Search currency by name',
+      placeholder: 'Search Currency', 
       value,
       onChange: this.onChange
     };
@@ -78,6 +86,7 @@ export default class Search extends React.Component {
     // Finally, render it!
     return (
       <Autosuggest
+        onSuggestionSelected={this.onSuggestionSelected}
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}

@@ -16,38 +16,63 @@ export class RegistrationForm extends React.Component {
 
     render() {
         return (
+            <div className="all">
+            <div className="home">
+                <div className="cont_back_info">
+                <div class="cont_centrar">
+         
+           <div className="login-form">
+            <label for="tab-2" className="tab">Sign Up</label>
+            <div className="login-wrap">
             <form
-                className="login-form"
+                
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                <label htmlFor="email">Email</label>
-                <Field
+                <label htmlFor="email">*Email</label>
+                <div className="group">
+                <Field className="second"
                     component={Input}
                     type="text"
                     name="email"
                     validate={[required, nonEmpty, isTrimmed]}
-                />
-                <label htmlFor="password">Password</label>
-                <Field
+                /></div>
+                <div className="group">
+                <label className="start" htmlFor="password">*Password</label>
+                <Field className="second"
                     component={Input}
                     type="password"
                     name="password"
                     validate={[required, length({min: 1, max: 8}), isTrimmed]}
-                />
-                <label htmlFor="passwordConfirm">Confirm password</label>
-                <Field
+                /></div>
+                <div className="group">
+                <label className="start" htmlFor="passwordConfirm">*Confirm password</label>
+                <Field className="second"
                     component={Input}
                     type="password"
                     name="passwordConfirm"
                     validate={[required, nonEmpty, matches('password')]}
-                />
-                <button
+                /></div>
+                <div className="group">
+                <button className="sub"
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
-                    Register
+                    SIGN UP
                 </button>
+                </div>
+               
+                <a href ="/">Already have an account?</a>
+                <div className="hr"></div>
+               <div className="foot-lnk">
+               </div>
             </form>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>      
+        
         );
     }
 }

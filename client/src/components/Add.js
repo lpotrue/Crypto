@@ -5,7 +5,12 @@ import {Redirect} from 'react-router-dom';
 import { add } from '../actions/auth';
 import { testFetch } from '../actions/protected-data';
 import { sendEntry } from '../actions/addNew';
-// import {required, nonEmpty} from '../validators';
+//import SimplePieChart1 from './SimplePieChart1';
+//import SimplePieChart2 from './SimplePieChart2';
+//import HourSimplePieChart from './HourSimplePieChart';
+//import SimplePieChart4 from './SimplePieChart4';
+//import SimplePieChart5 from './SimplePieChart5';
+//import {required, nonEmpty} from '../validators';
 
 export class Add extends React.Component {
 
@@ -15,12 +20,12 @@ export class Add extends React.Component {
 
 
     onSubmit(values) {
-        let submission = {
-            journal: values.journal,
-            mood: values.mood,
-            activity: values.activity
-        };
-        console.log(submission);
+      
+        console.log(values, this.props.selectedCoin);
+        
+        let submission = this.props.selectedCoin;
+
+        submission.amount = values.amount
         return this.props.dispatch(sendEntry(submission));
     }
 
@@ -40,51 +45,28 @@ export class Add extends React.Component {
 
         return (
             <form
-                className="login-form"
+                className="login-form2"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
                 {error}
                 <br />
-                
-                <p>Welcome back, {this.props.email}</p>
+                <h4>{this.props.selectedCoin.name}  <span>&#36;</span>{this.props.selectedCoin.price_usd}</h4>
 
-                <p>Mood</p>
-                <label>
-                    <Field name="mood" component="input" type="radio" value="happy" />
-                    {' '}
-                    happy
-                </label>
-                  <label>
-                    <Field name="mood" component="input" type="radio" value="nervous" />
-                    {' '}
-                    nervous
-                  </label>
-
-                  <p>Activity</p>
-                <label>
-                    <Field name="activity" component="input" type="radio" value="work" />
-                    {' '}
-                    work
-                </label>
-                  <label>
-                    <Field name="activity" component="input" type="radio" value="video games" />
-                    {' '}
-                    video games
-                  </label>
-                  <br />
-                  <br />
-                  <label htmlFor="journal">Journal</label>
-                  <br />
-                    <Field name="journal" component="textarea" type="textarea" />
+                    
+                    <label>Amount</label>
+                <br/>
+                    <Field name="amount" component="input" type="text" placeholder="Enter Amount"/>
                 <br />
-                <button disabled={this.props.pristine || this.props.submitting}>
-                    Submit
+                <button id="btnn" disabled={this.props.pristine || this.props.submitting}>
+                    Add New
                 </button>
             </form>
         );
     }
 }
+
+
 
 const mapStateToProps = state => {
     const {currentUser} = state.auth;

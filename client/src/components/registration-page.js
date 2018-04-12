@@ -11,11 +11,16 @@ export function RegistrationPage(props) {
         return <Redirect to="/dashboard" />;
     }
     return (
+       
         <div className="home">
-            <h2>Register for Crypto</h2>
+          <p>Let's Get Started!</p>
+            
             <RegistrationForm />
-            <Link to="/">Login</Link>
+           
+        <h5>"Hodl" or hold onto cryptocurrency. Create an account with us to learn about cryptocurrency trends.</h5>
+
         </div>
+    
     );
 }
 

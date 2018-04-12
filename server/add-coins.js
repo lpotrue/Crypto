@@ -8,13 +8,15 @@ mongoose.connect('mongodb://coins:coins@ds263707.mlab.com:63707/coins');
 
 
 var date = new Date();
-var daysToDeletion = 3;
+var daysToDeletion = 30;
 var deletionDate = new Date(date.setDate(date.getDate() - daysToDeletion));
-
+  deletionDate = deletionDate/1000
+    console.log(deletionDate)
+    console.log(deletionDate/1000)
 
 return new Promise((resolve, reject) => {
         request({
-            url: `https://api.coinmarketcap.com/v1/ticker/?limit=10`,
+            url: `https://api.coinmarketcap.com/v1/ticker/?limit=0`,
             json: true
         }, (error, response, body) => {
 
