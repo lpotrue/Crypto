@@ -36,5 +36,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
    },
- "homepage":"https://lpotrue.github.io/JustHodl/"
+ //"homepage":"https://lpotrue.github.io/JustHodl/"
+ "homepage":"https://just-hodl.netlify.com//"
 }
