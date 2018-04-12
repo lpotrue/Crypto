@@ -15,11 +15,11 @@ export const fetchCurrencyDataError = error => ({
     error
 });
 
-export const FETCH_COIN_PRICES = 'FETCH_COIN_PRICES';
-export const fetchCoinPrices = data => ({
-    type: FETCH_COIN_PRICES,
-    data
-})
+//export const FETCH_COIN_PRICES = 'FETCH_COIN_PRICES';
+//export const fetchCoinPrices = data => ({
+   // type: FETCH_COIN_PRICES,
+   // data
+//})
 
 
 

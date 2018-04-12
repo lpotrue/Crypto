@@ -12,7 +12,7 @@ const initialState = {
     coins: [],
     selectedCoin: {},
     yourCoins: [],
-    coinPrices:[],
+    
     
 };
 
@@ -34,12 +34,6 @@ export default function reducer(state = initialState, action) {
             ...state,
             yourCoins: [...action.yourCoins]
 
-        }
-        case 'FETCH_COIN_PRICES':
-        console.log(action.data)
-        return {
-            ...state,
-            coinPrices: action.data
         }
         
         case 'EDIT':

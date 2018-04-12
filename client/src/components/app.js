@@ -5,11 +5,8 @@ import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import Add from './Add';
-import Decrement from './Decrement';
 import RegistrationPage from './registration-page';
 import {refreshAuthToken} from '../actions/auth';
-
-
 
 export class App extends React.Component {
     componentDidMount() {
@@ -57,15 +54,8 @@ export class App extends React.Component {
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/add" component={Add} />
-                <Route exact path="/decrement" component={Decrement} />
-            
-  
- 
 
-    
-      
-     </div>
-     
+            </div>
         );
     }
 }
@@ -80,3 +70,4 @@ const mapStateToProps = state => {
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
 export default withRouter(connect(mapStateToProps)(App));
+

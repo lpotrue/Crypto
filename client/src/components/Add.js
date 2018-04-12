@@ -5,12 +5,12 @@ import {Redirect} from 'react-router-dom';
 import { add } from '../actions/auth';
 import { testFetch } from '../actions/protected-data';
 import { sendEntry } from '../actions/addNew';
-import SimplePieChart from './SimplePieChart';
-import HourPieChart from './HourPieChart';
-import DayPieChart from './DayPieChart';
-import RankPieChart from './RankPieChart';
-import WeekPieChart from './WeekPieChart';
-// import {required, nonEmpty} from '../validators';
+//import SimplePieChart1 from './SimplePieChart1';
+//import SimplePieChart2 from './SimplePieChart2';
+//import HourSimplePieChart from './HourSimplePieChart';
+//import SimplePieChart4 from './SimplePieChart4';
+//import SimplePieChart5 from './SimplePieChart5';
+//import {required, nonEmpty} from '../validators';
 
 export class Add extends React.Component {
 

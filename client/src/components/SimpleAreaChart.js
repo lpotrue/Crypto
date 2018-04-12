@@ -26,10 +26,10 @@ const SimpleAreaChart = (props) => {
        <XAxis dataKey="last_updated" tickFormatter={tickFormatter}/>
        <YAxis />
        <CartesianGrid strokeDasharray="3 3"/>
-       <Tooltip label={tickFormatter}/>
+       <Tooltip label={tickFormatter.format}/>
      
        <Area type="monotone" dataKey="price_usd"  stroke="#00008B" activeDot={{r: 8}}/>
-       <Line type="monotone" dataKey="last_updated" text={tickFormatter} stroke="#82ca9d"/>
+       <Line type="monotone" dataKey="last_updated" stroke="#82ca9d"/>
 
       </AreaChart>
 

@@ -20,7 +20,7 @@ export class LoginForm extends React.Component {
         }
         return (
          <div id="everything">
-           <p>Welcome back to Just Hodl! View your coins.</p> 
+           <p>Welcome back to Just Hodl!</p> 
            <div className="login-form">
 
           
