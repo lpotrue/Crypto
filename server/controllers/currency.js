@@ -29,7 +29,6 @@ exports.findYourCoins = function(req, res, next) {
           )
 
           array[index].price_usd = latest.price_usd 
-          console.log("The latest price for " + coin.symbol + " is " + latest.price_usd)
         });
 
       console.log(result);
