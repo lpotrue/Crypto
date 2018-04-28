@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Barlow');
+
 
 body {
 	background: url("https://ak6.picdn.net/shutterstock/videos/7739563/thumb/1.jpg")no-repeat center center fixed;
@@ -100,7 +100,8 @@ input{
 	background-color: white!important;
 }
 
-img{
+#img{
+  content: url("https://image.ibb.co/jurOAn/bitcoin.jpg");
 	margin: 0;
 	z-index: 1000;
 	opacity: 1.0;
@@ -507,7 +508,7 @@ img{
 .showMe{
   opacity: 0; 
   animation: fadeInUp 1s ease-in-out 0s forwards;
-  animation-delay: 36s;
+  animation-delay: 13s;
   }
 
 
@@ -544,13 +545,13 @@ img{
 #hideMe {
 	top: 50%;
 
-    -moz-animation: cssAnimation 1s ease-in 35s forwards;
+    -moz-animation: cssAnimation 1s ease-in 12s forwards;
     /* Firefox */
-    -webkit-animation: cssAnimation 1s ease-in 35s forwards;
+    -webkit-animation: cssAnimation 1s ease-in 12s forwards;
     /* Safari and Chrome */
-    -o-animation: cssAnimation 1s ease-in 35s forwards;
+    -o-animation: cssAnimation 1s ease-in 12s forwards;
     /* Opera */
-    animation: cssAnimation 1s ease-in 35s forwards;
+    animation: cssAnimation 1s ease-in 12s forwards;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }

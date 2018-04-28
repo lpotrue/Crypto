@@ -29,7 +29,7 @@ export class HeaderBar extends React.Component {
                   <li><div id="lo">{logOutButton}</div></li>
               <div id="just">
                 <span><h1>Just Hodl</h1></span>
-                <span><img src="https:/image.ibb.co/jurOAn/bitcoin.jpg" alt="bitcoin" border="0"/></span>
+                <span id="img"></span>
               </div>
                 <div className="dashboard-username">
                     {this.props.email}
