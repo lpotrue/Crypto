@@ -20,7 +20,7 @@ export class LoginForm extends React.Component {
         }
         return (
          <div id="everything">
-           <p>Welcome back to Just Hodl!</p> 
+           <h3>Welcome back!</h3> 
            <div className="login-form">
 
           
@@ -56,8 +56,8 @@ export class LoginForm extends React.Component {
                 <button type="submit" className="sub" value="Sign In">SIGN IN</button>
               </div>
               
-                <p>Don't have and account?</p>
-                <a href ="/register">Sign up Here</a>
+                <p>Don't have an account?</p>
+                <a href="/register">Sign up Here</a>
                 <div className="hr"></div></div>
                 <p>Demo Login:  me@me.com
                   <br/>
@@ -65,9 +65,7 @@ export class LoginForm extends React.Component {
              </form>
 
             </div>
-          
-           <h5>"Hodl" or hold onto cryptocurrency. Create an account with us to learn about cryptocurrency trends.</h5>
-
+        
         </div>
     
             

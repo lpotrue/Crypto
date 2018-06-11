@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-
+import {login} from '../actions/auth';
 import RegistrationForm from './registration-form';
 
 export function RegistrationPage(props) {
@@ -12,13 +12,13 @@ export function RegistrationPage(props) {
     }
     return (
        
-        <div className="home">
-          <p>Let's Get Started!</p>
+        <div className="register-home">
+          <h3>Let's Get Started!</h3>
             
-            <RegistrationForm />
-           
-        <h5>"Hodl" or hold onto cryptocurrency. Create an account with us to learn about cryptocurrency trends.</h5>
-
+          <RegistrationForm />
+            
+            <div className="space">
+            </div>
         </div>
     
     );

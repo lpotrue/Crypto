@@ -61,7 +61,8 @@ export class RegistrationForm extends React.Component {
                 </button>
                 </div>
                
-                <a href ="/">Already have an account?</a>
+               <p>Already have an account?</p>
+                <a href ="/login">Sign in Here</a>
                 <div className="hr"></div>
                <div className="foot-lnk">
                </div>

@@ -8,7 +8,7 @@ const SimplePieChart1 = (props) => {
  
     return (
       <PieChart id="pcrank" width={100} height={100}>
-        <Pie data={props.coinData} dataKey="rank" innerRadius={40} outerRadius={50} fill="blueviolet"/>
+        <Pie data={props.coinData} dataKey="rank" innerRadius={40} outerRadius={50} fill="mediumslateblue"/>
         <Tooltip/>
 	   </PieChart>
     );

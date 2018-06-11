@@ -13,31 +13,13 @@ export function LoginPage(props) {
         return <Redirect to="/dashboard" />;
     }
     return (
-        
-            <form
-                className="login-form"
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}>
-                {error}
-                
-                <label htmlFor="email">Email</label>
-                <Field
-                    component={Input}
-                    type="text"
-                    name="confirmPassword"
-                    id="email"
-                    validate={[required, nonEmpty]}
-                />
-                <label htmlFor="password">Password</label>
-                <Field
-                    component={Input}
-                    type="password"
-                    name="confirmPassword"
-                    id="password"
-                    validate={[required, nonEmpty]}
-                />
-            </form>
+        <div className="login-home">
+         
+            <LoginForm />
+           
+        <div className="space">
+         </div>
+        </div>
     );
 }
 

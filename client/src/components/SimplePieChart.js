@@ -17,5 +17,4 @@ const SimplePieChart = (props) =>{
     
 export default connect()(SimplePieChart);
 
-//0)(SimplePieChart1)(SimplePieChart2)(SimplePieChart3)(SimplePieChart4);
 

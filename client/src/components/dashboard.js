@@ -83,6 +83,8 @@ export class Dashboard extends React.Component{
                         <div className="feature-progress-platform"></div>
                       </div>
                       </div>
+                      <div className="space">
+                       </div>
                      </div>
           <div className="showMe">
          
@@ -171,13 +173,13 @@ export class Dashboard extends React.Component{
         if(window.scrollY!=0)
     {
     setTimeout(function() {
-       window.scrollTo(0,window.scrollY-30);
+       window.scrollTo(0,window.scrollY-200);
         TopscrollTo();
-    }, 100);
+    }, 80);
     }
   }  
     function scrollTo(element, to, duration) {
-        console.log("dog")
+       
     if (duration <= 0) return;
     var difference = to - element.scrollTop;
     var perTick = difference / duration * 10;
