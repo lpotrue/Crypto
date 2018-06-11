@@ -12,6 +12,7 @@
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.5",
     "moment": "^2.20.1",
+    "npm": "^5.8.0",
     "react": "^15.5.4",
     "react-autosuggest": "^9.3.2",
     "react-dom": "^15.5.4",
@@ -35,6 +36,5 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-   },
- "homepage":"https://lpotrue.github.io/JustHodl/"
+  }
 }

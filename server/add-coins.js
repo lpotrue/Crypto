@@ -1,10 +1,8 @@
 const request = require('request');
 const Coin = require('./models/coins');
-//https://api.coinmarketcap.com/v1/ticker/?limit=1000
 console.log('Data fecthed');
 const mongoose= require('mongoose');
 mongoose.connect('mongodb://coins:coins@ds263707.mlab.com:63707/coins');
-//mongoose.connect('mongodb://localhost:8080');
 
 
 var date = new Date();
@@ -16,7 +14,7 @@ var deletionDate = new Date(date.setDate(date.getDate() - daysToDeletion));
 
 return new Promise((resolve, reject) => {
         request({
-            url: `https://api.coinmarketcap.com/v1/ticker/?limit=0`,
+            url: `https://api.coinmarketcap.com/v1/ticker/?limit=100`,
             json: true
         }, (error, response, body) => {
 
