@@ -1,12 +1,15 @@
 
 
-body {
+body{
 	background: url("https://ak6.picdn.net/shutterstock/videos/7739563/thumb/1.jpg")no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+  width: 100%;
+  overflow: hidden;
 }
+
 
 h1 {
 	color: white;

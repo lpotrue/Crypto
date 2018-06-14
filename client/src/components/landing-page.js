@@ -39,6 +39,7 @@ export function LandingPage(props) {
           <h5>"Hodl" or hold onto cryptocurrency.  Save your chosen cryptocurrencies to track their progress.</h5>
        </div>
        </div> 
+       
         <div className="space">
         </div>
        

@@ -19,6 +19,7 @@ export function RegistrationPage(props) {
             
             <div className="space">
             </div>
+       
         </div>
     
     );
