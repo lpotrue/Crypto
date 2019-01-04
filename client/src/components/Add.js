@@ -9,7 +9,7 @@ import { sendEntry } from '../actions/addNew';
 export class Add extends React.Component {
 
     componentDidMount() {
-       // this.props.dispatch(testFetch());
+       
     }
 
 

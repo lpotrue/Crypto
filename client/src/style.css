@@ -1,15 +1,12 @@
-
-
 body{
-	background: url("https://ak6.picdn.net/shutterstock/videos/7739563/thumb/1.jpg")no-repeat center center fixed;
+	background: url("https://ak6.picdn.net/shutterstock/videos/7739563/thumb/1.jpg") fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
-
 
 h1 {
 	color: white;
@@ -26,13 +23,19 @@ h2 {
 	font-family: 'Raleway', sans-serif;
 }
 @media only screen and (max-width: 500px) {
-  h2{ display: flex; }
+  h2{ display: flex; 
+  }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 320px) {
  .recharts-wrapper{ 
  		transform: scale(.8);
+    margin-top: 10%;
  		}
   } 
+
+.recharts-wrapper{
+  margin-top: 10px;
+}
 
 h3{
   opacity: 1;
@@ -64,8 +67,10 @@ h5{
 @media only screen and (max-width: 400px) {
   h5{ margin-left: 2%;
   	  margin-right: 2%; 
-  	  width: auto;}
+  	  width: auto;
+  }
 }
+
 
 p{
 	text-align: center;
@@ -114,6 +119,7 @@ td{
 
 input{
 	background-color: white!important;
+  cursor: text;
 }
 
 #img{
@@ -143,7 +149,6 @@ input{
 #just{
 	margin: auto;
 }
-
 
 .header-bar{
   z-index: 2000;
@@ -207,6 +212,10 @@ input{
   color: #333;
 }
 
+#password, #email, #passwordConfirm, input {
+  cursor: text;
+}
+
 .second, #password, #email, .sub, #go, #passwordConfirm, input, #btnn {
 	border: none;
 	margin-bottom: 7px;
@@ -216,7 +225,7 @@ input{
   width: 200px;
   background-color: rgba(255,255,255,.1);
   text-decoration: none;
-  cursor: pointer;
+  
   font-size: 13px;
 }
 
@@ -384,7 +393,6 @@ input{
 	box-shadow: 6px 6px 6px #999;
 }
 
-
 .recharts-tooltip-label{
 	color: blue;
 }
@@ -504,38 +512,101 @@ input{
 	padding-bottom: 6%;
 }
 
-.mine{
+.my-stats{
   font-family: 'Raleway', sans-serif;
 	box-sizing: border-box;
 	background: rgb(204, 204, 204); 
   background: rgba(204, 204, 204, 0.5);
 	color: black;
 	text-align: center;
-  line-height: 4vh;
   display: inline-table;
   border-radius: 3px;
   box-shadow: 6px 6px 6px #999;
   margin-bottom: 5%;
 }
 @media only screen and (max-width: 550px) {
-  #mine, #graph{ 
+  .my-stats, #mine, #graph{ 
+        margin-top: -8%;
+        margin-left: -4%;
+  		  font-size: 10px bold;
+  		  transform: scale(.9);
+  		  width: 100%;
+      }
+  }
+@media only screen and (max-width: 500px) {
+ .my-stats, #mine, #graph{  
+        margin-top: -10%;
+        font-size: 10px bold;
+        transform: scale(.9);
+        width: 100%;
+      }
+  }
+@media only screen and (max-width: 450px) {
+ .my-stats, #mine, #graph{ 
+        margin-top: -20%; 
+        margin-left: -5%;
   		  font-size: 10px bold;
   		  transform: scale(.8);
-  		  width: 100%;}
+  		  width: 100%;
+      }
   }
-
-@media only screen and (max-width: 450px) {
-  #mine, #graph{  margin-left: -10%;
+@media only screen and (max-width: 420px) {
+ .my-stats, #mine, #graph{  
+        margin-top: -20%;
+        margin-left: -8%;
+        font-size: 10px bold;
+        transform: scale(.8);
+        width: 100%;
+      }
+  }
+@media only screen and (max-width: 400px) {
+ .my-stats, #mine, #graph{ 
+        margin-top: -20%;
+        margin-left: -12%;
+        font-size: 10px bold;
+        transform: scale(.8);
+        width: 100%;
+      }
+  }
+@media only screen and (max-width: 376px) {
+  .my-stats, #mine, #graph{  
+        margin-left: -11%;
+        margin-top: -20%;
   		  font-size: 10px bold;
-  		  transform: scale(.7);
-  		  width: 100%;}
+  		  transform: scale(.8);
+  		  width: 100%;
+      }
   }
 @media only screen and (max-width: 350px) {
-  #mine, #graph{  margin-left: -20%;
-  		  font-size: 10px bold;
-  		  transform: scale(.7);
-  		  width: 100%;}
+  .my-stats, #mine, #graph{ 
+        margin-top: -35%;
+        margin-left: -11%;
+        font-size: 10px bold;
+        transform: scale(.7);
+        width: 100%;
+      }
   }
+@media only screen and (max-width: 325px) {
+  .my-stats, #mine, #graph{
+        margin-top: -40%;  
+        margin-left: -12%;
+        font-size: 10px bold;
+        transform: scale(.7);
+        width: 100%;
+      }
+  }
+
+@media only screen and (max-width: 320px) {
+  .my-stats, #mine, #graph{ 
+        margin-top: -40%; 
+        margin-left: -15%;
+        font-size: 10px bold;
+        transform: scale(.7);
+        width: 100%;
+      }
+  }
+
+
 
 
   #coin-names{
@@ -555,7 +626,6 @@ input{
 	border-radius: 2px;
 	background-color: transparent;
 	width: 30px;
-	height: 30px;
 	padding-bottom: 2px;
 	padding: 2px;
 	text-align: center;
@@ -603,7 +673,7 @@ input{
 .showMe{
   opacity: 0; 
   animation: fadeInUp 1s ease-in-out 0s forwards;
-  animation-delay: 27s;
+  animation-delay: 5s;
   }
 
 
@@ -886,8 +956,6 @@ input{
   stroke: #333;
   stroke-width: 20;
   -webkit-animation-play-state: running;
-  
-  /* firefox bug fix - won't rotate at 90deg angles */
   -moz-transform: rotate(-89deg) translateX(-190px);
 }
 
@@ -919,9 +987,7 @@ input{
   -webkit-animation: show25 2s;
   animation: show25 2s;
 }
-/* END set initial animation values */
 
-/* Keyframes for the initial animation */
 @-webkit-keyframes show100 {
   from {
     stroke-dashoffset: 537;
@@ -1001,9 +1067,7 @@ input{
     stroke-dashoffset: 401;
   }
 }
-/* END Keyframes for the initial animation */
 
-/* Animations */
 @-webkit-keyframes spin {
   from {
     -webkit-transform: rotate(0deg);
@@ -1025,7 +1089,6 @@ input{
   }
 }
 
-
 .space {
   position: fixed;
   width: 400vw;
@@ -1039,7 +1102,6 @@ input{
   background-size: 240px;
   -webkit-backface-visibility: visible;
           backface-visibility: visible;
-  /* Had to base64 SVG background for FF compatibility */
     background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI0MCAyNDAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0MCAyNDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxyZWN0IHg9IjEwNiIgeT0iOTAiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz48cmVjdCB4PSI3NCIgeT0iNjMiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIyMyIgeT0iNjYiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSI1MCIgeT0iMTEwIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iNjMiIHk9IjEyOCIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxyZWN0IHg9IjQ1IiB5PSIxNDkiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSI5MiIgeT0iMTUxIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iNTgiIHk9IjgiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIxNDciIHk9IjMzIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIi8+PHJlY3QgeD0iOTEiIHk9IjQzIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iMTY5IiB5PSIyOSIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxyZWN0IHg9IjE4MiIgeT0iMTkiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIxNjEiIHk9IjU5IiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iMTM4IiB5PSI5NSIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxyZWN0IHg9IjE5OSIgeT0iNzEiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiLz48cmVjdCB4PSIyMTMiIHk9IjE1MyIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPjxyZWN0IHg9IjEyOCIgeT0iMTYzIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+PHJlY3QgeD0iMjA1IiB5PSIxNzQiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIxNTIiIHk9IjIwMCIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjxyZWN0IHg9IjUyIiB5PSIyMTEiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz48cmVjdCB5PSIxOTEiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz48cmVjdCB4PSIxMTAiIHk9IjE4NCIgZmlsbD0iI0ZGRkZGRiIgd2lkdGg9IjEiIGhlaWdodD0iMSIvPjwvc3ZnPg==);
 }
 
