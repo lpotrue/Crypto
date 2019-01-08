@@ -56,7 +56,7 @@ function updatePrices(){
         }, (error, response, body) => {
 
             latestPrices = body;
-          
+            //console.log(latestPrices)
            
        });
 }
@@ -75,7 +75,7 @@ exports.deleteCurrent = function(req, res, next) {
           )
 
           array[index].price_usd = coin.price_usd.decrement - (1)
-          
+          console.log("I am subtracting " + "1" +  coin.price_usd)
         });
 
       console.log(result);

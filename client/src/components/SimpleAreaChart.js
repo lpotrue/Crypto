@@ -19,9 +19,9 @@ const SimpleAreaChart = (props) => {
 
     
   	 return (
-       <div>
+        <div>
         
-    	 <AreaChart width={500} height={300} data={props.coinData}
+    	<AreaChart width={500} height={300} data={props.coinData}
             margin={{top: 0, right: 0, left: 0, bottom: 0}}>
        <XAxis dataKey="last_updated" tickFormatter={tickFormatter}/>
        <YAxis />
@@ -33,7 +33,7 @@ const SimpleAreaChart = (props) => {
 
       </AreaChart>
 
-       </div>
+      </div>
     );
   
 }

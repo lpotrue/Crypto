@@ -8,13 +8,14 @@ import './style.css';
 
 
 
+
 ReactDOM.render(
     <Provider store={store}>
         <Router>
             <App />
         </Router>
     </Provider>,
-  document.getElementById('root')
+    document.getElementById('root')
 );
 
    

@@ -1,11 +1,11 @@
 import React from 'react'
 
 const Stocks = (props) => (
-  <div className="my-stats">
+  <div className="mine">
 
     
     
-  <label id="coin-names">My Portfolio</label>
+      <label id="coin-names">My Portfolio</label>
         
           
     <table>
@@ -27,7 +27,6 @@ const Stocks = (props) => (
         <td id="amount" value={coin._id}>{coin.amount}</td>
         <td id="right" value={coin._id}>{coin.price_usd}</td> 
         <td id="total" value={coin._id}>{coin.price_usd * coin.amount}</td>
-        
         
         <td value={coin._id}><button id="plus" onClick={ ()=>props.edit(coin, 1)}> + </button></td>
         <td value={coin._id}><button id="plus" onClick={ ()=>props.edit(coin, -1)} > - </button></td>

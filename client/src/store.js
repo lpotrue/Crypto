@@ -14,6 +14,7 @@ const store = createStore(
         auth: authReducer,
         protectedData: protectedDataReducer,
         currency: currencyReducer,
+        
         counter: counter
     }),
     applyMiddleware(thunk)

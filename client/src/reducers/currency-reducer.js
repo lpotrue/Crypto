@@ -1,3 +1,4 @@
+//const request = require('request');
 import {
     FETCH_PROTECTED_DATA_SUCCESS,
     FETCH_PROTECTED_DATA_ERROR
@@ -79,3 +80,21 @@ function add_coins (state, action){
 }
 
 
+
+
+/*var latestPrices;
+
+function updatePrices(){
+  request({
+            url: `https://api.coinmarketcap.com/v1/ticker/?limit=0`,
+            json: true
+        }, (error, response, body) => {
+
+            latestPrices = body;
+            console.log(latestPrices)
+            console.log("Jaguar_____")
+           
+       });
+
+}*/
+ 
