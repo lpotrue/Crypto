@@ -56,20 +56,18 @@ export class App extends React.Component {
                 <Route exact path="/login" component={LoginPage} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/add" component={Add} />
-
+                 
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-    // console.log(state.auth);
     return {   
         hasAuthToken: state.auth.authToken !== null,
         loggedIn: state.auth.currentUser !== null
     }
 };
 
-// Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
 export default withRouter(connect(mapStateToProps)(App));
 

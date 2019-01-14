@@ -1,7 +1,4 @@
-//import axios from 'axios';
-// import * as io from 'socket.io-client'; 
-// var socket = io('http://localhost:3000'); 
-import {API_BASE_URL} from '../config';
+ import {API_BASE_URL} from '../config';
 
 
 export const decrementEntry = (entry) => (dispatch, getState) => {
@@ -20,7 +17,7 @@ export const decrementEntry = (entry) => (dispatch, getState) => {
     })
     .then((response) => {
         console.log(response);
-//         // socket.emit('add entry', entries);
+        
 
       })
 }

@@ -11,7 +11,6 @@ import Decrement from './Decrement';
 import Stocks from './Stocks';
 import SimplePieChart1 from './SimplePieChart1';
 import SimplePieChart from './SimplePieChart';
-
 import moment from 'moment';
 import { ScrollTo } from "react-scroll-to";
 
@@ -34,7 +33,7 @@ export class Dashboard extends React.Component{
        
     }
     componentWillReceiveProps(){
-        //console.log(this.props.currency)
+        
     }
  
     editCoin = (coin, num) => { 
@@ -64,10 +63,10 @@ export class Dashboard extends React.Component{
         } 
     
       
-      return (
+    return (
         
         <div className="dashboard">
-                    <div id="hideMe">  
+                    {/*<div id="hideMe">  
                         <div className="container">
                           <div className="feature-progress" aria-hidden="true">
                           <div className="feature-progress-ball-wrap">
@@ -86,8 +85,8 @@ export class Dashboard extends React.Component{
                       <div className="space">
                        </div>
                      </div>
-          <div className="showMe">
-         
+                        <div className="showMe">*/}
+             <div className="showMe">
               <section className="stats">
                       <a href="#searching" className="arrow-container">
                         <span className="arrow"></span>
@@ -111,20 +110,20 @@ export class Dashboard extends React.Component{
                      
                     <div id="rank3" className="chart" data-percent="100">
                      <figcaption id="stats3" className="chart">{this.props.selectedCoin.percent_change_1h}<span>&#37;</span></figcaption> 
-                     <svg className="outer" cx="100" cy="50" r="40" stroke="black" stroke-width="3"/>
+                     {/*<svg className="outer" cx="100" cy="50" r="40" stroke="black" stroke-width="3"/>*/}
                      <span id="stats3">1 Hour Change</span>
                    </div>
                    
                   <span id="together">
                       <div id="rank2" className="chart" data-percent="100">
                         <figcaption id="stats2" className="chart">{this.props.selectedCoin.percent_change_24h}<span>&#37;</span></figcaption>
-                        <svg className="outer" cx="100" cy="50" r="40" stroke="black" stroke-width="3"/>     
+                       {/*}<svg className="outer" cx="100" cy="50" r="40" stroke="black" stroke-width="3"/> */}    
                         <span id="stats2">24 Hour Change</span>
                       </div>
 
                       <div id="rank4" className="chart" data-percent="100">
                          <figcaption id="stats4" className="chart">{this.props.selectedCoin.percent_change_7d}<span>&#37;</span></figcaption>
-                         <svg className="outer" cx="100" cy="50" r="40" stroke="black" stroke-width="3"/>
+                         {/*<svg className="outer" cx="100" cy="50" r="40" stroke="black" stroke-width="3"/>*/}
                          <span id="stats4">7 Day Change</span>
                        </div>
                     </span>
@@ -137,7 +136,7 @@ export class Dashboard extends React.Component{
                 </section>
             
 
-          <section id="searching">
+           <section id="searching">
               <div id="tabs">
                <h3 id="search">Search</h3>
                 <span>&darr;</span>
@@ -150,23 +149,23 @@ export class Dashboard extends React.Component{
             
             
             
-             <h3 id="search">Portfolio</h3>
-             <div id="mine">
+              <h3 id="search">Portfolio</h3>
+              <div id="mine">
               <Stocks yourCoins={this.props.yourCoins} edit={this.editCoin} graphCoin={this.graphCoin} selectedCoin={this.graphCoin}/><Decrement selectedCoin={this.props.decrementCoin}/>
             </div>
             </div>
           
-        </section>
-           
-       </div>
-
+          </section>
+         </div>  
+      </div>
+ 
                    
-    </div>
+   
        
         
-         );
-     }       
-      }
+           );
+         }       
+       }
 
 
     function TopscrollTo() {
